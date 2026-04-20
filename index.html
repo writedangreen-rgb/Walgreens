@@ -26,7 +26,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     background: var(--surface);
     color: var(--text-primary);
     min-height: 100vh;
@@ -52,7 +52,7 @@
     background: #ddd;
   }
   .top-bar-powered {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     color: #666;
     letter-spacing: 0.04em;
@@ -136,7 +136,7 @@
   }
   .tab-btn {
     padding: 26px 44px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 18px; font-weight: 600;
     color: rgba(255,255,255,0.4);
     background: none; border: none;
@@ -413,7 +413,7 @@
     padding: 8px 18px;
     border-radius: 20px; border: 1.5px solid var(--border);
     background: var(--card);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 12.5px; font-weight: 600; color: var(--text-secondary);
     cursor: pointer; transition: all 0.18s;
   }
@@ -476,7 +476,27 @@
   .prize-card:nth-child(1) { animation-delay: 0.05s; }
   .prize-card:nth-child(2) { animation-delay: 0.1s; }
   .prize-card:nth-child(3) { animation-delay: 0.15s; }
-</style>
+
+  /* REVENUE ROI TAB - FUNNEL */
+  .funnel-step { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center; box-shadow:var(--shadow); }
+  .funnel-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); margin-bottom:6px; }
+  .funnel-val { font-family:'DM Serif Display',serif; font-size:1.2rem; color:var(--text-primary); font-weight:400; }
+
+  /* BENCHMARK PILLS */
+  .benchmark-pills { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+  .bpill { padding:4px 12px; border-radius:20px; font-size:12px; font-weight:600; cursor:pointer; background:rgba(26,26,46,0.08); color:var(--text-secondary); border:1px solid var(--border); transition:all .15s; }
+  .bpill.active, .bpill:hover { background:var(--walgreen-red); color:#fff; border-color:var(--walgreen-red); }
+
+  /* INFO TIP */
+  .info-tip { display:inline-flex; align-items:center; justify-content:center; width:16px; height:16px; border-radius:50%; background:rgba(26,26,46,0.15); font-size:10px; font-weight:700; color:var(--text-muted); cursor:help; vertical-align:middle; }
+
+  /* OPT IMPACT */
+  .opt-impact-val.green { color:#15803d; }
+
+  /* RANGE HINT */
+  .range-hint { font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.5; }
+
+  </style>
 </head>
 <body>
 
@@ -499,9 +519,10 @@
 
 <div class="tab-nav">
   <div class="tab-nav-inner">
-    <button class="tab-btn active" onclick="switchTab('opportunity', this)">① &nbsp;Size of the Prize</button>
-    <button class="tab-btn" onclick="switchTab('roi', this)">② &nbsp;Revenue ROI</button>
-    <button class="tab-btn" onclick="switchTab('journey', this)">③ &nbsp;Customer Journey</button>
+    <button class="tab-btn active" onclick="switchTab('opportunity', this)">① &nbsp;Incremental Reach</button>
+    <button class="tab-btn" onclick="switchTab('revenue', this)">② &nbsp;Revenue ROI</button>
+    <button class="tab-btn" onclick="switchTab('roi', this)">③ &nbsp;Pricing &amp; Services</button>
+    <button class="tab-btn" onclick="switchTab('journey', this)">④ &nbsp;Customer Journey</button>
   </div>
 </div>
 
@@ -512,170 +533,237 @@
   <!-- ═══════════════════════════════════════════════ -->
   <div id="tab-opportunity" class="tab-content active">
 
-    <div style="margin-bottom:20px; margin-top:4px;">
-      <h2 style="font-family:'DM Serif Display',serif; font-size:1.35rem; font-weight:400;">Size of the Prize</h2>
-      <p style="font-size:15px; color:var(--text-muted); margin-top:4px;">By switching from cookie-based to Semcasting's non-cookie identity resolution, Walgreens gains a materially larger and more precisely matched addressable audience.</p>
+    <!-- IDENTIFIED WALK-IN CUSTOMERS SECTION -->
+    <div style="margin-bottom:32px;">
+      <div style="font-family:'DM Serif Display',serif; font-size:1.6rem; font-weight:700; color:#1a1a2e; margin-bottom:12px; padding-bottom:4px; border-bottom:2px solid #1a1a2e;">Identified Walk-in Customers to Walgreens/Competitive Pharmacies</div>
+
+      <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#374151; margin-bottom:4px;">Semcasting Audience Measurement · 400-Day Dataset</div>
+      <div style="font-size:12px; color:#6b7280; margin-bottom:16px;">33,728,202 observed store visits · 400-day dataset · people counts</div>
+
+      <table style="width:100%; border-collapse:separate; border-spacing:0 6px; font-family:'Inter',sans-serif;">
+        <thead>
+          <tr>
+            <th style="padding:10px 16px; text-align:left; font-size:13px; font-weight:700; color:#1a1a2e; background:transparent; border:none; width:200px;">Age Segment</th>
+            <th style="padding:10px 16px; text-align:center; font-size:13px; font-weight:700; color:#0077a3; background:rgba(0,180,216,0.08); border:1px solid rgba(0,180,216,0.2); border-radius:8px 8px 0 0;">💊 Walgreens Visitors</th>
+            <th style="width:16px; background:transparent; border:none;"></th>
+            <th style="padding:10px 16px; text-align:center; font-size:13px; font-weight:700; color:#c2640a; background:rgba(244,162,97,0.1); border:1px solid rgba(244,162,97,0.25); border-radius:8px 8px 0 0;">🏪 Competitive Pharmacy Visitors</th>
+          </tr>
+          <tr>
+            <th style="background:transparent; border:none;"></th>
+            <th style="padding:7px 12px; font-size:11px; font-weight:700; color:#0077a3; text-transform:uppercase; letter-spacing:.05em; text-align:center; background:rgba(0,180,216,0.05); border-left:1px solid rgba(0,180,216,0.15); border-right:1px solid rgba(0,180,216,0.15); border-bottom:2px solid rgba(0,180,216,0.3);">People</th>
+            <th style="background:transparent; border:none;"></th>
+            <th style="padding:7px 12px; font-size:11px; font-weight:700; color:#c2640a; text-transform:uppercase; letter-spacing:.05em; text-align:center; background:rgba(244,162,97,0.05); border-left:1px solid rgba(244,162,97,0.2); border-right:1px solid rgba(244,162,97,0.2); border-bottom:2px solid rgba(244,162,97,0.35);">People</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:14px 16px; background:rgba(227,24,55,0.06); border:1px solid rgba(227,24,55,0.18); border-radius:8px 0 0 8px;">
+              <div style="font-size:14px; font-weight:700; color:#b91c1c;">👴 Senior / Age 65+</div>
+              <div style="font-size:12px; color:#374151; margin-top:3px;">Medicare-eligible · Part B covered · highest immunization priority</div>
+            </td>
+            <td style="padding:14px 12px; background:rgba(0,180,216,0.08); border:1px solid rgba(0,180,216,0.2); border-radius:0 8px 8px 0; text-align:center;">
+              <div style="font-size:1.2rem; font-weight:700; color:#0077a3;">16.0M</div>
+            </td>
+            <td style="background:transparent; border:none;"></td>
+            <td style="padding:14px 12px; background:rgba(244,162,97,0.08); border:1px solid rgba(244,162,97,0.2); border-radius:8px; text-align:center;">
+              <div style="font-size:1.2rem; font-weight:700; color:#c2640a;">13.2M</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px; background:rgba(0,180,216,0.05); border:1px solid rgba(0,180,216,0.15); border-radius:8px 0 0 8px;">
+              <div style="font-size:14px; font-weight:700; color:#0077a3;">🧑 Under Age 65</div>
+              <div style="font-size:12px; color:#374151; margin-top:3px;">Adults under 65 · employer / family / out-of-pocket coverage</div>
+            </td>
+            <td style="padding:14px 12px; background:rgba(0,180,216,0.08); border:1px solid rgba(0,180,216,0.2); border-radius:0 8px 8px 0; text-align:center;">
+              <div style="font-size:1.2rem; font-weight:700; color:#0077a3;">36.8M</div>
+            </td>
+            <td style="background:transparent; border:none;"></td>
+            <td style="padding:14px 12px; background:rgba(244,162,97,0.08); border:1px solid rgba(244,162,97,0.2); border-radius:8px; text-align:center;">
+              <div style="font-size:1.2rem; font-weight:700; color:#c2640a;">30.8M</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px; background:rgba(167,139,219,0.06); border:1px solid rgba(167,139,219,0.2); border-radius:8px 0 0 8px;">
+              <div style="font-size:14px; font-weight:700; color:#7c3aed;">👶 Households with Kids</div>
+              <div style="font-size:12px; color:#374151; margin-top:3px;">Family immunization decisions · flu + pediatric vaccines</div>
+            </td>
+            <td style="padding:14px 12px; background:rgba(0,180,216,0.08); border:1px solid rgba(0,180,216,0.2); border-radius:0 8px 8px 0; text-align:center;">
+              <div style="font-size:1.2rem; font-weight:700; color:#0077a3;">26.4M</div>
+            </td>
+            <td style="background:transparent; border:none;"></td>
+            <td style="padding:14px 12px; background:rgba(244,162,97,0.08); border:1px solid rgba(244,162,97,0.2); border-radius:8px; text-align:center;">
+              <div style="font-size:1.2rem; font-weight:700; color:#c2640a;">22.3M</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px; background:rgba(26,26,46,0.06); border:1px solid rgba(26,26,46,0.15); border-radius:8px 0 0 8px;">
+              <div style="font-size:13px; font-weight:700; color:#1a1a2e;">Adult Total</div>
+              <div style="font-size:11px; color:#6b7280; margin-top:2px;">65+ plus Under 65 · Kids HH excluded to avoid overlap</div>
+            </td>
+            <td style="padding:12px 12px; background:rgba(0,180,216,0.12); border:1px solid rgba(0,180,216,0.25); border-radius:0 8px 8px 0; text-align:center;">
+              <div style="font-size:1.1rem; font-weight:700; color:#0077a3;">52.8M</div>
+              <div style="font-size:11px; color:#6b7280; margin-top:2px;">16.0M + 36.8M</div>
+            </td>
+            <td style="background:transparent; border:none;"></td>
+            <td style="padding:12px 12px; background:rgba(244,162,97,0.12); border:1px solid rgba(244,162,97,0.25); border-radius:8px; text-align:center;">
+              <div style="font-size:1.1rem; font-weight:700; color:#c2640a;">44.0M</div>
+              <div style="font-size:11px; color:#6b7280; margin-top:2px;">13.2M + 30.8M</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px; background:rgba(124,58,237,0.06); border:1px solid rgba(124,58,237,0.18); border-radius:8px 0 0 8px;">
+              <div style="font-size:13px; font-weight:700; color:#7c3aed;">Est. WAG Non-Loyalty Customers</div>
+              <div style="font-size:12px; color:#374151; margin-top:2px;">WAG store visitors skew toward loyalty members — est. 65% are loyalty, 35% non-loyalty · Competitive visitors use 60% (national average)</div>
+            </td>
+            <td style="padding:12px 12px; background:rgba(124,58,237,0.08); border:1px solid rgba(124,58,237,0.2); border-radius:0 8px 8px 0; text-align:center;">
+              <div style="font-size:1.1rem; font-weight:700; color:#7c3aed;">18.5M</div>
+              <div style="font-size:11px; color:#6b7280; margin-top:2px;">52.8M × 35% non-loyalty</div>
+            </td>
+            <td style="background:transparent; border:none;"></td>
+            <td style="padding:12px 12px; background:rgba(124,58,237,0.08); border:1px solid rgba(124,58,237,0.2); border-radius:8px; text-align:center;">
+              <div style="font-size:1.1rem; font-weight:700; color:#7c3aed;">26.4M</div>
+              <div style="font-size:11px; color:#6b7280; margin-top:2px;">44.0M × 60% non-loyalty</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px; font-size:12px; color:#6b7280; font-style:italic;">Source: Semcasting footfall measurement · 33,728,202 observed WAG store visits over 400 days · Competitive store visitors identified via pharmacy footfall intelligence. Loyalty status unresolved across all segments.</div>
     </div>
 
-    <!-- MATCH RATE COMPARISON HERO -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
+    <!-- LOYALTY WATERFALL -->
+    <div style="margin-bottom:32px;">
+      <div style="font-family:'DM Serif Display',serif; font-size:1.6rem; font-weight:700; color:#1a1a2e; margin-bottom:12px; padding-bottom:4px; border-bottom:2px solid #1a1a2e;">Increased Match Rates from Adobe CRM to Epsilon</div>
 
-      <!-- Epsilon Today -->
-      <div style="background:linear-gradient(135deg,#1a1a2e,#1e2a3a); border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:24px;">
-        <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,0.35); margin-bottom:8px;">Today — Epsilon / Cookie-Based</div>
-        <div style="font-family:'DM Serif Display',serif; font-size:2.2rem; color:rgba(255,255,255,0.8);">70%</div>
-        <div style="font-size:14px; color:rgba(255,255,255,0.6); margin-top:2px;">Average match rate</div>
-        <div style="margin-top:16px; display:flex; flex-direction:column; gap:7px;">
-          <div style="font-size:14px; color:rgba(255,255,255,0.65);">✗ &nbsp;Cookie-dependent — degrades with browser restrictions</div>
-          <div style="font-size:14px; color:rgba(255,255,255,0.65);">✗ &nbsp;Limited to known loyalty universe</div>
-          <div style="font-size:14px; color:rgba(255,255,255,0.65);">✗ &nbsp;No reach to competitor households</div>
-          <div style="font-size:14px; color:rgba(255,255,255,0.65);">✗ &nbsp;Weak Senior / Medicare match</div>
+      <div style="display:flex; align-items:flex-end; gap:0; position:relative;">
+
+        <!-- Bar 1: Total CRM -->
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="font-size:1.6rem; font-weight:700; color:#1a1a2e;">100M</div>
+          <div style="width:100%; background:linear-gradient(180deg,#1a3a5c,#0d2137); border-radius:8px 8px 0 0; height:180px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px;">
+            <div style="font-size:13px; font-weight:700; color:#fff;">Total CRM</div>
+            <div style="font-size:11px; color:rgba(255,255,255,0.65);">WAG members</div>
+          </div>
+          <div style="font-size:11px; color:#6b7280; text-align:center; line-height:1.4;">Source: Walgreens<br>public disclosure</div>
         </div>
-        <div style="margin-top:18px; background:rgba(255,255,255,0.08); border-radius:8px; padding:10px 14px;">
-          <div style="font-size:13px; color:rgba(255,255,255,0.55); margin-bottom:4px; text-transform:uppercase; letter-spacing:.05em;">Reachable from 100M Loyalty Base</div>
-          <div style="font-family:'DM Serif Display',serif; font-size:1.4rem; color:rgba(255,255,255,0.75);">~70M</div>
+
+        <!-- Arrow -->
+        <div style="display:flex; align-items:center; padding:0 6px; padding-bottom:48px;">
+          <div style="font-size:1.2rem; color:#9ca3af;">→</div>
         </div>
+
+        <!-- Bar 2: Digitally Identifiable Today -->
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="font-size:1.6rem; font-weight:700; color:#1a1a2e;">70M</div>
+          <div style="width:100%; background:linear-gradient(180deg,#0077a3,#005a7a); border-radius:8px 8px 0 0; height:126px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px;">
+            <div style="font-size:13px; font-weight:700; color:#fff;">Digitally Reachable</div>
+            <div style="font-size:11px; color:rgba(255,255,255,0.65);">Today</div>
+          </div>
+          <div style="font-size:11px; color:#6b7280; text-align:center; line-height:1.4;">Est. ~70% match rate<br>per industry benchmarks</div>
+        </div>
+
+        <!-- Drop label -->
+        <div style="display:flex; align-items:center; padding:0 4px; padding-bottom:48px;">
+          <div style="font-size:10px; color:#b91c1c; font-weight:600; text-align:center; line-height:1.3;">−30M<br>unmatched</div>
+        </div>
+
+        <!-- Bar 3: +Semcasting -->
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="font-size:1.6rem; font-weight:700; color:#15803d;">85M</div>
+          <div style="position:relative; width:100%; height:153px;">
+            <!-- Base teal bar -->
+            <div style="width:100%; background:linear-gradient(180deg,#0077a3,#005a7a); border-radius:0; height:126px; position:absolute; bottom:0;"></div>
+            <!-- Incremental green top -->
+            <div style="width:100%; background:linear-gradient(180deg,#15803d,#166534); border-radius:8px 8px 0 0; height:27px; position:absolute; top:0; display:flex; align-items:center; justify-content:center;">
+              <div style="font-size:10px; font-weight:700; color:#fff;">+15M</div>
+            </div>
+            <!-- Label overlay -->
+            <div style="position:absolute; bottom:0; width:100%; height:126px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px;">
+              <div style="font-size:13px; font-weight:700; color:#fff;">+Semcasting</div>
+              <div style="font-size:11px; color:rgba(255,255,255,0.65);">Identity Layer</div>
+            </div>
+          </div>
+          <div style="font-size:11px; color:#15803d; font-weight:600; text-align:center; line-height:1.4;">+15M incremental<br>matches unlocked</div>
+        </div>
+
       </div>
 
-      <!-- Semcasting -->
-      <div style="background:linear-gradient(135deg,#0a1628,#0d2137); border:2px solid rgba(0,180,216,0.4); border-radius:16px; padding:24px; box-shadow:0 4px 24px rgba(0,180,216,0.12);">
-        <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#00b4d8; margin-bottom:8px;">Semcasting — Non-Cookie Identity Resolution</div>
-        <div style="font-family:'DM Serif Display',serif; font-size:2.2rem; color:#00b4d8;">90%</div>
-        <div style="font-size:14px; color:rgba(0,180,216,0.7); margin-top:2px;">Average match rate</div>
-        <div style="margin-top:16px; display:flex; flex-direction:column; gap:7px;">
-          <div style="font-size:14px; color:rgba(255,255,255,0.7);">✓ &nbsp;Persistent non-cookie ID — browser-independent</div>
-          <div style="font-size:14px; color:rgba(255,255,255,0.7);">✓ &nbsp;Extends reach beyond the loyalty universe</div>
-          <div style="font-size:14px; color:rgba(255,255,255,0.7);">✓ &nbsp;Identifies competitor household shoppers</div>
-          <div style="font-size:14px; color:rgba(255,255,255,0.7);">✓ &nbsp;90% verified reach against Medicare Seniors</div>
+      <!-- Legend -->
+      <div style="display:flex; gap:20px; margin-top:14px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:6px;">
+          <div style="width:12px; height:12px; background:#1a3a5c; border-radius:2px;"></div>
+          <span style="font-size:12px; color:#374151;">Total CRM base</span>
         </div>
-        <div style="margin-top:18px; background:rgba(0,180,216,0.1); border-radius:8px; padding:10px 14px; border:1px solid rgba(0,180,216,0.2);">
-          <div style="font-size:13px; color:rgba(0,180,216,0.6); margin-bottom:4px; text-transform:uppercase; letter-spacing:.05em;">Reachable from 100M Loyalty Base</div>
-          <div style="font-family:'DM Serif Display',serif; font-size:1.4rem; color:#00b4d8;">~90M <span style="font-size:1rem; color:#4ade80;">+20M incremental</span></div>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <div style="width:12px; height:12px; background:#0077a3; border-radius:2px;"></div>
+          <span style="font-size:12px; color:#374151;">Reachable today</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <div style="width:12px; height:12px; background:#15803d; border-radius:2px;"></div>
+          <span style="font-size:12px; color:#374151;">Incremental via Semcasting</span>
         </div>
       </div>
     </div>
 
-    <!-- AUDIENCE POOL BREAKDOWN -->
-    <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px; margin-bottom:20px;">
-      <div style="font-family:'DM Serif Display',serif; font-size:1.1rem; margin-bottom:18px; color:var(--text-primary);">Total Addressable Audience Build <span style="font-size:0.85rem; font-weight:400; color:var(--text-muted); font-family:'DM Sans',sans-serif;">— Semcasting vs. Today</span></div>
+    <!-- WEB TRAFFIC FUNNEL -->
+    <div style="margin-bottom:32px;">
+      <div style="font-family:'DM Serif Display',serif; font-size:1.6rem; font-weight:700; color:#1a1a2e; margin-bottom:12px; padding-bottom:4px; border-bottom:2px solid #1a1a2e;">Walgreens.com — Site Traffic to Immunization Page</div>
+      <div style="font-size:12px; color:#6b7280; margin-bottom:16px;">Source: SimilarWeb / Semrush public estimates · immunization page estimate based on 3–5% of total site traffic</div>
 
-      <!-- Segment rows -->
-      <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:flex-end; gap:0; max-width:600px;">
 
-        <!-- Loyalty -->
-        <div style="display:grid; grid-template-columns:220px 1fr 120px 120px; align-items:center; gap:12px; padding:12px 16px; background:rgba(0,180,216,0.06); border:1px solid rgba(0,180,216,0.15); border-radius:10px;">
-          <div>
-            <div style="font-size:15px; font-weight:700; color:#00b4d8;">💊 WAG Loyalty Members</div>
-            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">CRM-reachable, Epsilon activates today</div>
+        <!-- Bar 1: Total Site Visits -->
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="text-align:center;">
+            <div style="font-size:1.3rem; font-weight:700; color:#1a1a2e;">55M–80M</div>
+            <div style="font-size:11px; color:#6b7280;">per month</div>
           </div>
-          <div>
-            <div style="height:8px; background:rgba(255,255,255,0.08); border-radius:4px; overflow:hidden;">
-              <div style="height:100%; width:56%; background:#00b4d8; border-radius:4px;"></div>
+          <div style="width:100%; background:linear-gradient(180deg,#1a3a5c,#0d2137); border-radius:8px 8px 0 0; height:200px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px; padding:12px;">
+            <div style="font-size:22px;">🌐</div>
+            <div style="font-size:13px; font-weight:700; color:#fff; text-align:center;">Total Site Visits</div>
+            <div style="font-size:11px; color:rgba(255,255,255,0.65); text-align:center;">walgreens.com</div>
+            <div style="margin-top:6px; background:rgba(255,255,255,0.1); border-radius:6px; padding:4px 10px;">
+              <div style="font-size:10px; color:rgba(255,255,255,0.5);">Peak: Nov 2024</div>
+              <div style="font-size:12px; font-weight:700; color:#fff;">~80M</div>
             </div>
-            <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">100M base · 70M reachable today → <span style="color:#4ade80; font-weight:700;">90M with Semcasting</span></div>
+            <div style="background:rgba(255,255,255,0.1); border-radius:6px; padding:4px 10px;">
+              <div style="font-size:10px; color:rgba(255,255,255,0.5);">Off-peak avg</div>
+              <div style="font-size:12px; font-weight:700; color:#fff;">~55M</div>
+            </div>
           </div>
-          <div style="text-align:right;"><div style="font-size:13px; color:var(--text-muted);">Today</div><div style="font-size:1.1rem; font-weight:700; color:rgba(255,255,255,0.45);">70M</div></div>
-          <div style="text-align:right;"><div style="font-size:13px; color:#4ade80;">+Semcasting</div><div style="font-size:1.1rem; font-weight:700; color:#00b4d8;">90M</div></div>
+          <div style="font-size:11px; color:#6b7280; text-align:center; line-height:1.4;">SimilarWeb / Semrush<br>public estimates</div>
         </div>
 
-        <!-- Competitor Pharmacy Visitors -->
-        <div style="display:grid; grid-template-columns:220px 1fr 120px 120px; align-items:center; gap:12px; padding:12px 16px; background:rgba(244,162,97,0.06); border:1px solid rgba(244,162,97,0.15); border-radius:10px;">
-          <div>
-            <div style="font-size:15px; font-weight:700; color:#f4a261;">🏪 Competitor Pharmacy Visitors</div>
-            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">Footfall-identified visiting CVS, Walmart, Rite Aid, grocery pharmacy</div>
-          </div>
-          <div>
-            <div style="height:8px; background:rgba(255,255,255,0.08); border-radius:4px; overflow:hidden;">
-              <div style="height:100%; width:65%; background:#f4a261; border-radius:4px;"></div>
-            </div>
-            <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Behaviorally qualified — already pharmacy-active, just not at Walgreens · Semcasting resolves device visits to household IDs · entirely invisible to Epsilon → <span style="color:#4ade80; font-weight:700;">high-value conquest audience</span></div>
-          </div>
-          <div style="text-align:right;"><div style="font-size:13px; color:var(--text-muted);">Today</div><div style="font-size:1.1rem; font-weight:700; color:rgba(255,255,255,0.45);">0</div></div>
-          <div style="text-align:right;"><div style="font-size:13px; color:#4ade80;">+Semcasting</div><div style="font-size:1.1rem; font-weight:700; color:#f4a261;">✓ Reachable</div></div>
+        <!-- Funnel neck -->
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding-bottom:48px; width:90px; flex-shrink:0; gap:4px;">
+          <div style="font-size:11px; font-weight:600; color:#0077a3; text-align:center; line-height:1.5;">3–5%<br>navigate to<br>immunization</div>
+          <div style="font-size:1.1rem; color:#9ca3af;">→</div>
         </div>
 
-        <!-- Unregistered Walgreens Visitors -->
-        <div style="display:grid; grid-template-columns:220px 1fr 120px 120px; align-items:center; gap:12px; padding:12px 16px; background:rgba(106,76,147,0.06); border:1px solid rgba(106,76,147,0.2); border-radius:10px;">
-          <div>
-            <div style="font-size:15px; font-weight:700; color:#a78bdb;">🚶 Non-Loyalty Walgreens Visitors</div>
-            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">Visited a Walgreens store · no loyalty card · no CRM record</div>
+        <!-- Bar 2: Immunization Page -->
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="text-align:center;">
+            <div style="font-size:1.3rem; font-weight:700; color:#0077a3;">1.5M–4M</div>
+            <div style="font-size:11px; color:#6b7280;">per month</div>
           </div>
-          <div>
-            <div style="height:8px; background:rgba(255,255,255,0.08); border-radius:4px; overflow:hidden;">
-              <div style="height:100%; width:50%; background:#a78bdb; border-radius:4px;"></div>
-            </div>
-            <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Already choosing Walgreens but outside the CRM universe · Semcasting identifies via store visit signals and resolves to a reachable digital ID → <span style="color:#4ade80; font-weight:700;">loyalty enrollment + immunization opportunity</span></div>
+          <div style="width:100%; background:linear-gradient(180deg,#0077a3,#005a7a); border-radius:8px 8px 0 0; height:100px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px; padding:12px;">
+            <div style="font-size:22px;">💉</div>
+            <div style="font-size:13px; font-weight:700; color:#fff; text-align:center;">Immunization Page</div>
+            <div style="font-size:11px; color:rgba(255,255,255,0.65); text-align:center;">walgreens.com/immunizations</div>
           </div>
-          <div style="text-align:right;"><div style="font-size:13px; color:var(--text-muted);">Today</div><div style="font-size:1.1rem; font-weight:700; color:rgba(255,255,255,0.45);">0</div></div>
-          <div style="text-align:right;"><div style="font-size:13px; color:#4ade80;">+Semcasting</div><div style="font-size:1.1rem; font-weight:700; color:#a78bdb;">✓ Reachable</div></div>
-        </div>
-
-        <div style="display:grid; grid-template-columns:220px 1fr 120px 120px; align-items:center; gap:12px; padding:12px 16px; background:rgba(227,24,55,0.06); border:1px solid rgba(227,24,55,0.15); border-radius:10px;">
-          <div>
-            <div style="font-size:15px; font-weight:700; color:#e31837;">👴 Medicare Seniors 65+</div>
-            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">#1 immunization audience — within total above</div>
-          </div>
-          <div>
-            <div style="height:8px; background:rgba(255,255,255,0.08); border-radius:4px; overflow:hidden;">
-              <div style="height:100%; width:90%; background:#e31837; border-radius:4px;"></div>
-            </div>
-            <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">56.1M Medicare beneficiaries · 90% match = <span style="color:#4ade80; font-weight:700;">50.4M verified seniors</span></div>
-          </div>
-          <div style="text-align:right;"><div style="font-size:13px; color:var(--text-muted);">Today</div><div style="font-size:1.1rem; font-weight:700; color:rgba(255,255,255,0.45);">~35M</div></div>
-          <div style="text-align:right;"><div style="font-size:13px; color:#4ade80;">+Semcasting</div><div style="font-size:1.1rem; font-weight:700; color:#e31837;">50.4M</div></div>
+          <div style="font-size:11px; color:#6b7280; text-align:center; line-height:1.4;">Est. 3–5% of site traffic<br>per SimilarWeb benchmarks</div>
         </div>
 
       </div>
-    </div>
 
-    <!-- HERO TOTAL + CHANNEL BREAKDOWN -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px;">
-
-      <!-- Total addressable hero -->
-      <div style="background:linear-gradient(135deg,#0a1628,#0d1f35); border:2px solid rgba(227,24,55,0.5); border-radius:16px; padding:24px; box-shadow:0 4px 32px rgba(227,24,55,0.15);">
-        <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:rgba(227,24,55,0.8); margin-bottom:6px;">Total Addressable with Semcasting</div>
-        <div style="font-family:'DM Serif Display',serif; font-size:3rem; color:#fff; line-height:1;">180M</div>
-        <div style="font-size:14px; color:rgba(255,255,255,0.5); margin-top:4px;">Adults 18+ reachable across all channels</div>
-        <div style="margin-top:16px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.08);">
-          <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
-            <span style="font-size:14px; color:rgba(255,255,255,0.5);">Today (Epsilon)</span>
-            <span style="font-size:14px; font-weight:700; color:rgba(255,255,255,0.45);">~70M</span>
-          </div>
-          <div style="display:flex; justify-content:space-between;">
-            <span style="font-size:14px; color:#4ade80;">Incremental with Semcasting</span>
-            <span style="font-size:14px; font-weight:700; color:#4ade80;">+110M</span>
-          </div>
-        </div>
+      <!-- Key insight callout -->
+      <div style="margin-top:16px; padding:12px 16px; background:rgba(0,119,163,0.06); border:1px solid rgba(0,119,163,0.2); border-radius:10px; border-left:3px solid #0077a3;">
+        <div style="font-size:13px; color:#1a1a2e; line-height:1.6;"><strong style="color:#0077a3;">Key insight:</strong> Between 1.5M and 4M people visit Walgreens' immunization pages each month — expressing clear intent. Over a <strong>6-month flight, that represents 9M–12M people</strong>. Semcasting can identity-resolve these visitors and connect them to a household record, enabling coordinated follow-up across paid, email, and owned channels.</div>
       </div>
-
-      <!-- Owned & Operated Channel Stack -->
-      <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px;">
-        <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--text-muted); margin-bottom:14px;">Connect to Owned &amp; Operated Channels</div>
-        <div style="font-size:14px; color:var(--text-muted); margin-bottom:12px;">With 180M identified, Semcasting connects audience records to Walgreens' full channel stack — coordinating distribution based on addressability:</div>
-        <div style="display:flex; flex-direction:column; gap:8px;">
-          <div style="display:flex; align-items:center; gap:10px; padding:8px 12px; background:rgba(0,180,216,0.08); border-radius:8px; border:1px solid rgba(0,180,216,0.15);">
-            <span style="font-size:16px;">🎯</span>
-            <div><div style="font-size:14px; font-weight:700; color:#00b4d8;">Paid Digital</div><div style="font-size:13px; color:var(--text-muted);">Display · Social · CTV · Programmatic</div></div>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px; padding:8px 12px; background:rgba(0,180,216,0.08); border-radius:8px; border:1px solid rgba(0,180,216,0.15);">
-            <span style="font-size:16px;">📧</span>
-            <div><div style="font-size:14px; font-weight:700; color:#00b4d8;">Email</div><div style="font-size:13px; color:var(--text-muted);">CRM-triggered · loyalty-linked</div></div>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px; padding:8px 12px; background:rgba(0,180,216,0.08); border-radius:8px; border:1px solid rgba(0,180,216,0.15);">
-            <span style="font-size:16px;">📲</span>
-            <div><div style="font-size:14px; font-weight:700; color:#00b4d8;">Owned &amp; Operated Channels</div><div style="font-size:13px; color:var(--text-muted);">SMS · Push Notification · IVR</div></div>
-          </div>
-        </div>
-        <div style="margin-top:14px; font-size:13px; color:var(--text-muted); line-height:1.6; padding:10px 12px; background:rgba(255,255,255,0.03); border-radius:8px;">
-          Addressability varies by customer: some reachable across all 3 channel groups, others across 2 or 1. Semcasting maps which channels each individual can be reached on before spend is committed.
-        </div>
-      </div>
-
     </div>
 
     <!-- FOOTNOTE -->
     <div class="footnote">
-      <p>† 38M immunizations administered at Walgreens in 2024–25 season. Source: Walgreens Sr. Director of Immunizations, <em>Pharmacy Times</em>, Jan 2026. &nbsp;·&nbsp; 56.1M Medicare beneficiaries: CMS 2026. &nbsp;·&nbsp; 90% match rate: Semcasting non-cookie identity resolution benchmark. &nbsp;·&nbsp; Epsilon match rate of 70% is an industry estimate for cookie-based resolution. &nbsp;·&nbsp; Competitor pharmacy visitors and non-loyalty Walgreens visitors identified via Semcasting footfall intelligence and household-level device resolution.*</p>
+      <p>† 38M immunizations administered at Walgreens in 2024–25 season. Source: Walgreens Sr. Director of Immunizations, <em>Pharmacy Times</em>, Jan 2026. &nbsp;·&nbsp; 56.1M Medicare beneficiaries: CMS 2026. &nbsp;·&nbsp; 85% match rate: Semcasting non-cookie identity resolution benchmark. &nbsp;·&nbsp; Current cookie-based match rate industry benchmark: ~70%. &nbsp;·&nbsp; Competitor pharmacy visitors and non-loyalty Walgreens visitors identified via Semcasting footfall intelligence and household-level device resolution.*</p>
     </div>
 
   </div>
@@ -685,341 +773,178 @@
   <!-- ═══════════════════════════════════════════════ -->
   <div id="tab-roi" class="tab-content">
 
-    <div style="display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:20px; margin-top:4px;">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:24px; margin-top:4px;">
       <div>
-        <h2 style="font-family:'DM Serif Display',serif; font-size:1.35rem; font-weight:400;">Incremental Revenue Impact</h2>
-        <p style="font-size:15px; color:var(--text-muted); margin-top:4px;">From coordinated CRM-driven immunization campaigns</p>
+        <h2 style="font-family:'DM Serif Display',serif; font-size:1.35rem; font-weight:400;">FY27 — Pricing &amp; Services</h2>
+        <p style="font-size:14px; color:var(--text-muted); margin-top:4px;">Five service lines that expand Walgreens' reachable audience and improve media coordination</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#0a1628,#0d2137); border:2px solid rgba(227,24,55,0.4); border-radius:12px; padding:14px 24px; text-align:center; flex-shrink:0;">
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:rgba(227,24,55,0.8); margin-bottom:4px;">Total Investment</div>
+        <div style="font-family:'DM Serif Display',serif; font-size:2rem; color:#fff; line-height:1;">$23.5K</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.6); margin-top:3px;">per month · all 5 services</div>
       </div>
     </div>
 
-    <div class="section-header" style="margin-top:0;">
-      <h2>Revenue Assumptions</h2>
-    </div>
-    <div class="divider"></div>
-
-
-    <div class="input-grid">
-      <div class="input-group">
-        <label>Avg Revenue per Immunization †</label>
-        <input type="range" id="rev-per-imm" min="30" max="120" step="5" value="60" oninput="updateROI()">
-        <div class="input-row"><span class="input-prefix">$</span><div class="range-display"><span id="rev-per-imm-val">60</span></div></div>
-        <div class="range-hint">CMS Medicare range: $11–$84 depending on vaccine type &amp; payer mix</div>
-      </div>
-      <div class="input-group">
-        <label>Retail Basket Attachment Rate *</label>
-        <input type="range" id="basket-attach" min="20" max="70" step="5" value="25" oninput="updateROI()">
-        <div class="range-display"><span id="basket-attach-val">45</span>%</div>
-        <div class="range-hint">Semcasting estimate — % of immunization visits with retail co-purchase</div>
-      </div>
-      <div class="input-group">
-        <label>Avg Retail Basket Value *</label>
-        <input type="range" id="basket-value" min="10" max="60" step="5" value="20" oninput="updateROI()">
-        <div class="input-row"><span class="input-prefix">$</span><div class="range-display"><span id="basket-value-val">28</span></div></div>
-        <div class="range-hint">Semcasting estimate — no public Walgreens-specific data available</div>
-      </div>
-    </div>
-
-    <div class="section-header">
-      <h2>Budget & Reach</h2>
-    </div>
-    <div class="divider"></div>
-
-    <div class="input-grid">
-      <div class="input-group">
-        <label>Total Eligible Audience (from Tab 1)</label>
-        <input type="range" id="total-eligible" min="1000000" max="200000000" step="1000000" value="180000000" oninput="updateROI()">
-        <div class="range-display"><span id="total-eligible-val">160.0M</span></div>
-        <div class="range-hint">Total loyalty + non-loyalty + prospects targeted</div>
-      </div>
-      <div class="input-group">
-        <label>Annual Media Budget</label>
-        <input type="range" id="media-budget" min="500000" max="50000000" step="500000" value="5000000" oninput="updateROI()">
-        <div class="input-row"><span class="input-prefix">$</span><div class="range-display"><span id="media-budget-val">5.0M</span></div></div>
-        <div class="range-hint">Total paid media + owned channel spend</div>
-      </div>
-      <div class="input-group">
-        <label>Blended CPM <span class="info-tip" title="Cost per thousand impressions, blended across CTV, display, social, email">i</span></label>
-        <input type="range" id="cpm" min="2" max="40" step="0.5" value="10" oninput="updateROI()">
-        <div class="input-row"><span class="input-prefix">$</span><div class="range-display"><span id="cpm-val">12.00</span></div></div>
-        <div class="range-hint">Blended across channels. Display is cheapest ($5–10), then social ($10–15), then CTV ($25–30).</div>
-        <div class="benchmark-pills">
-          <span class="bpill">$5–10 Display</span>
-          <span class="bpill">$10–15 Social</span>
-          <span class="bpill">$25–30 CTV</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-header" style="margin-top:28px;">
-      <h2>Impression Optimization</h2>
-      <span>Semcasting identity advantage</span>
-    </div>
-    <div class="divider"></div>
-
-    <div class="input-grid">
-      
-      </div>
-<div class="input-group">
-        <label>Improved Audience Targeting * <span class="info-tip" title="Performance lift from serving ads to a more precisely matched audience — higher CTR, view-through rate, and walk-in conversion from better identity resolution and audience quality">i</span></label>
-        <input type="range" id="targeting-lift" min="0" max="25" step="1" value="10" oninput="updateROI()">
-        <div class="range-display"><span id="targeting-lift-val">10</span>%</div>
-        <div class="range-hint">* Incremental lift in clicks, view-throughs, and walk-in conversions from serving impressions to a higher-quality, identity-resolved audience vs. cookie-based or modeled segments. Applied across all downstream conversion paths. Conservative estimate given Epsilon is already a quality vendor — benchmarks reflect the net incremental improvement from switching to non-cookie deterministic identity.</div>
-        <div class="benchmark-pills">
-          <span class="bpill" onclick="setBenchmark('targeting-lift','targeting-lift-val',5,this)">5% Conservative</span>
-          <span class="bpill active-pill" onclick="setBenchmark('targeting-lift','targeting-lift-val',10,this)">10% Standard</span>
-          <span class="bpill" onclick="setBenchmark('targeting-lift','targeting-lift-val',15,this)">15% Aggressive</span>
-        </div>
-        <div class="opt-impact-card" id="impact-targeting">
-          <div class="opt-impact-row"><span class="opt-impact-label">📈 Incremental Immunizations from Better Targeting</span><span class="opt-impact-val" id="impact-targeting-imm">—</span></div>
-          <div class="opt-impact-row"><span class="opt-impact-label">💰 Incremental Revenue from Better Targeting (<span id="impact-rev-label-t">$60 Pharmacy + $5 Retail Basket (25% of $20)</span>)</span><span class="opt-impact-val green" id="impact-targeting-rev">—</span></div>
-        </div>
-        <div style="margin-top:12px; padding:12px 16px; background:#f8fffe; border:1px solid #cce8f0; border-radius:10px; border-left:3px solid var(--sem-teal);">
-          <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--sem-dark-teal); margin-bottom:6px;">Supporting Research — Healthcare &amp; Pharma</div>
-          <div style="font-size:14px; color:var(--text-secondary); line-height:1.7;">
-            <strong>Veeva Systems (2023):</strong> Precision audience targeting in pharmaceutical campaigns improved patient action rates (scheduling, pharmacy visits) by 15–30% vs. broad demographic targeting across 200+ HCP and DTC campaigns.<br>
-            <strong>IQVIA (2022):</strong> Identity-resolved targeting in retail pharmacy campaigns reduced cost-per-patient-action by 20–35% compared to cookie-based audience segments, with the largest gains in the 65+ Medicare cohort.<br>
-            <strong>Foursquare / Placed.ai (2023):</strong> Identity-resolved campaigns drove 20–40% higher in-store visit lift vs. cookie-based campaigns; for pharmacy retail specifically, walk-in conversion improvement from better audience targeting ranged 10–25% across published case studies.<br>
-            <strong>Oracle Advertising (2022):</strong> Deterministic audience targeting outperformed probabilistic (cookie-based) by 20–35% on CTR across healthcare and CPG verticals — the gap widens as browser cookie restrictions increase.<br>
-            <em style="color:var(--text-muted); font-size:13px;">Note: Studies above are vendor-reported and reflect a range of client outcomes. The 5–15% benchmarks used in this model are intentionally conservative, reflecting the net incremental improvement when switching from a quality cookie-based vendor (Epsilon) to non-cookie deterministic identity resolution.</em>
+    <div style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:16px; box-shadow:var(--shadow);">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:280px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <div style="width:32px; height:32px; background:rgba(227,24,55,0.1); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">🔗</div>
+            <div>
+              <div style="font-size:16px; font-weight:700; color:#1a1a2e;">1. More Identity Data to Match to Epsilon</div>
+              <div style="font-size:13px; color:#e31837; font-weight:600;">+15M incremental records matched</div>
+            </div>
+          </div>
+          <p style="font-size:14px; color:#374151; line-height:1.6; margin-bottom:14px;">Identifiers and data elements added for improved match rates and targeting from Adobe to Epsilon. Unlocks 15 million additional loyalty members who are in the CRM but currently invisible to paid media activation.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:8px;">
+            <div style="background:#f8f9fb; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">📱 MAIDs (Mobile Ad IDs)</div>
+            <div style="background:#f8f9fb; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">✉️ Email Addresses</div>
+            <div style="background:#f8f9fb; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">📺 Blockgraph IDs (Linear TV)</div>
+            <div style="background:#f8f9fb; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🎵 iHeart Media IDs (Audio)</div>
+            <div style="background:#f8f9fb; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">👴 Age Brackets (65+ etc.)</div>
+            <div style="background:#f8f9fb; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">📊 Digital Activity Score (DMEI)</div>
+            <div style="background:#f8f9fb; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🏥 ACA Members</div>
           </div>
         </div>
-<div class="input-group">
-        <label>Orchestration Lift (vs. Siloed) * <span class="info-tip" title="Incremental conversion improvement from coordinating CRM, paid media, email and SMS around a single customer record vs. today's siloed execution">i</span></label>
-        <input type="range" id="orch-lift" min="1" max="30" step="1" value="10" oninput="updateROI()">
-        <div class="range-display"><span id="orch-lift-val">10</span>%</div>
-        <div class="range-hint">* Semcasting internal benchmark estimate. Incremental conversion lift from cross-channel coordination — better sequencing, frequency control, and consistent messaging across CRM, paid, email &amp; SMS.</div>
-        <div class="benchmark-pills">
-          <span class="bpill">5% Conservative</span>
-          <span class="bpill active-pill">10% Standard</span>
-          <span class="bpill">20% Aggressive</span>
+        <div style="background:linear-gradient(135deg,#0a1628,#0d2137); border-radius:12px; padding:20px 28px; text-align:center; flex-shrink:0; min-width:140px;">
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:rgba(227,24,55,0.8); margin-bottom:6px;">Monthly</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:2.2rem; color:#fff; line-height:1;">$3.5K</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:6px;">$42K / year</div>
         </div>
-        <div class="opt-impact-card" id="impact-orch">
-          <div class="opt-impact-row"><span class="opt-impact-label">💉 Incremental Immunizations from Coordination</span><span class="opt-impact-val" id="impact-orch-imm">—</span></div>
-          <div class="opt-impact-row"><span class="opt-impact-label">💰 Incremental Revenue from Coordination (<span id="impact-rev-label-o">$60 Pharmacy + $5 Retail Basket (25% of $20)</span>)</span><span class="opt-impact-val green" id="impact-orch-rev">—</span></div>
-        </div>
-        <div style="margin-top:12px; padding:12px 16px; background:#f8fffe; border:1px solid #cce8f0; border-radius:10px; border-left:3px solid var(--sem-teal);">
-          <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--sem-dark-teal); margin-bottom:6px;">Supporting Research</div>
-          <div style="font-size:14px; color:var(--text-secondary); line-height:1.7;">
-            McKinsey, Salesforce, and Aberdeen Group studies show coordinated multi-channel campaigns outperform siloed execution by 15–35% in conversion rates. Epsilon research shows adding a coordinated second channel lifts response rates 15–25% over single-channel alone. Salesforce Marketing Cloud and Adobe cite 10–20% efficiency gains from coordinated sequencing mechanics, though these are vendor-reported. Default set to 10% — mid-range of credible published evidence. Values above 20% require campaign-specific data to defend.
+      </div>
+    </div>
+
+    <div style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:16px; box-shadow:var(--shadow);">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:280px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <div style="width:32px; height:32px; background:rgba(0,180,216,0.1); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">🏪</div>
+            <div>
+              <div style="font-size:16px; font-weight:700; color:#1a1a2e;">2a. WAG Walk-in Traffic</div>
+              <div style="font-size:13px; color:#0077a3; font-weight:600;">+18M WAG non-loyalty customers identified</div>
+            </div>
+          </div>
+          <p style="font-size:14px; color:#374151; line-height:1.6; margin-bottom:14px;">Identifies Walgreens store visitors who are not in the loyalty program — people already choosing Walgreens for pharmacy or retail but outside the CRM universe.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:8px;">
+            <div style="background:#f0f9ff; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🚶 Non-loyalty WAG store visitors</div>
+            <div style="background:#f0f9ff; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🔍 Loyalty vs. non-loyalty cross-reference</div>
+            <div style="background:#f0f9ff; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">👴 Age range segmentation (65+)</div>
+            <div style="background:#f0f9ff; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🏥 Medicare eligibility overlay</div>
           </div>
         </div>
-      </div>
-      <div class="input-group">
-        <label>Frequency Control Lift <span class="info-tip" title="% of impressions recovered by controlling over-exposure at the person/household level — not the cookie level">i</span></label>
-        <input type="range" id="frequency-pct" min="0" max="20" step="1" value="12" oninput="updateROI()">
-        <div class="range-display"><span id="frequency-pct-val">12</span>%</div>
-        <div class="range-hint">Impressions redistributed from over-exposed to under-reached audiences using deterministic IDs. Semcasting targets an average of <strong>15 total exposures per consumer</strong> across SMS, email, social media, and paid media — frequency control ensures that budget is spread evenly to hit that target rather than over-saturating some while missing others. Standard lift: 5–18%.</div>
-        <div class="benchmark-pills">
-          <span class="bpill">5% Conservative</span>
-          <span class="bpill active-pill">12% Standard</span>
-          <span class="bpill">18% Aggressive</span>
-        </div>
-        <div class="opt-impact-card" id="impact-frequency">
-          <div class="opt-impact-row"><span class="opt-impact-label">📈 Additional Impressions Unlocked</span><span class="opt-impact-val" id="impact-frequency-impr">—</span></div>
-          <div class="opt-impact-row"><span class="opt-impact-label">💉 Incremental Immunizations (via scheduling)</span><span class="opt-impact-val" id="impact-frequency-imm">—</span></div>
-          <div class="opt-impact-row"><span class="opt-impact-label">💰 Incremental Revenue (<span id="impact-rev-label-f">$60 Pharmacy + $5 Retail Basket (25% of $20)</span>)</span><span class="opt-impact-val green" id="impact-frequency-rev">—</span></div>
+        <div style="background:linear-gradient(135deg,#0a1628,#0d2137); border-radius:12px; padding:20px 28px; text-align:center; flex-shrink:0; min-width:140px;">
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#00b4d8; margin-bottom:6px;">Monthly</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:2.2rem; color:#fff; line-height:1;">$5K</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:6px;">$60K / year</div>
         </div>
       </div>
     </div>
 
-    <!-- OPTIMIZATION SUMMARY PANEL -->
-    <div style="background:linear-gradient(135deg,#0a1628 0%,#0d2137 50%,#0a1628 100%); border-radius:18px; padding:32px; margin-top:12px; margin-bottom:12px; border:2px solid rgba(227,24,55,0.4); box-shadow:0 8px 40px rgba(227,24,55,0.15), 0 2px 12px rgba(0,0,0,0.4);">
-
-      <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
-        <div style="width:4px; height:36px; background:linear-gradient(180deg,#e31837,#ff6b7a); border-radius:2px; flex-shrink:0;"></div>
-        <div>
-          <div style="font-family:'DM Serif Display',serif; font-size:1.25rem; color:#fff; font-weight:400; line-height:1.2;">Semcasting Optimization Impact</div>
-          <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:rgba(227,24,55,0.8); margin-top:3px;">Revenue Lift Summary</div>
+    <div style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:16px; box-shadow:var(--shadow);">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:280px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <div style="width:32px; height:32px; background:rgba(244,162,97,0.15); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">🏬</div>
+            <div>
+              <div style="font-size:16px; font-weight:700; color:#1a1a2e;">2b. Competitive Pharmacy Traffic</div>
+              <div style="font-size:13px; color:#c2640a; font-weight:600;">Conquest audience — pharmacy-active, not yet WAG customers</div>
+            </div>
+          </div>
+          <p style="font-size:14px; color:#374151; line-height:1.6; margin-bottom:14px;">Identifies visitors to competitive pharmacy locations — CVS, Walmart pharmacy, and grocery pharmacy — who are not Walgreens customers.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:8px;">
+            <div style="background:#fff8f0; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🏪 CVS, Walmart &amp; grocery pharmacy visitors</div>
+            <div style="background:#fff8f0; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🔍 Non-WAG customer filter</div>
+            <div style="background:#fff8f0; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">👴 Age range segmentation (65+)</div>
+            <div style="background:#fff8f0; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">📊 Digital activity scoring</div>
+          </div>
         </div>
-      </div>
-
-      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:18px;">
-
-        <div style="display:grid; grid-template-columns:190px 1fr 1fr 1fr 1fr; align-items:center; gap:10px; background:rgba(227,24,55,0.08); border:1px solid rgba(227,24,55,0.18); border-radius:10px; padding:12px 16px;">
-          <div style="font-size:18px; font-weight:700; color:rgb(227,24,55);">Improved Audience Targeting</div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Extra Impressions</div><div style="font-size:1rem; font-weight:700; color:rgba(255,255,255,0.25);">N/A</div></div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Incr. Immunizations</div><div style="font-size:1rem; font-weight:700; color:#fff;" id="opt-summary-targeting-imm">—</div></div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Pharmacy Revenue</div><div style="font-size:1rem; font-weight:700; color:#4ade80;" id="opt-summary-targeting-rev">—</div></div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Retail Basket Revenue</div><div style="font-size:1rem; font-weight:700; color:#f4a261;" id="opt-summary-targeting-basket">—</div></div>
-        </div>        <div style="display:grid; grid-template-columns:190px 1fr 1fr 1fr 1fr; align-items:center; gap:10px; background:rgba(244,162,97,0.08); border:1px solid rgba(244,162,97,0.18); border-radius:10px; padding:12px 16px;">
-          <div style="font-size:18px; font-weight:700; color:rgb(244,162,97);">Orchestration Lift</div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Extra Impressions</div><div style="font-size:1rem; font-weight:700; color:rgba(255,255,255,0.25);">N/A</div></div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Incr. Immunizations</div><div style="font-size:1rem; font-weight:700; color:#fff;" id="opt-summary-orch-imm">—</div></div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Pharmacy Revenue</div><div style="font-size:1rem; font-weight:700; color:#4ade80;" id="opt-summary-orch-rev">—</div></div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Retail Basket Revenue</div><div style="font-size:1rem; font-weight:700; color:#f4a261;" id="opt-summary-orch-basket">—</div></div>
-        </div>
-
-
-
-        <div style="display:grid; grid-template-columns:190px 1fr 1fr 1fr 1fr; align-items:center; gap:10px; background:rgba(0,180,216,0.08); border:1px solid rgba(0,180,216,0.18); border-radius:10px; padding:12px 16px;">
-          <div style="font-size:18px; font-weight:700; color:rgb(0,180,216);">Frequency Control Lift</div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Extra Impressions</div><div style="font-size:1rem; font-weight:700; color:#fff;" id="opt-summary-frequency-impr">—</div></div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Incr. Immunizations</div><div style="font-size:1rem; font-weight:700; color:#fff;" id="opt-summary-frequency-imm">—</div></div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Pharmacy Revenue</div><div style="font-size:1rem; font-weight:700; color:#4ade80;" id="opt-summary-frequency-rev">—</div></div>
-          <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Retail Basket Revenue</div><div style="font-size:1rem; font-weight:700; color:#f4a261;" id="opt-summary-frequency-basket">—</div></div>
-        </div>
-
-      </div>
-
-      <div style="display:grid; grid-template-columns:190px 1fr 1fr 1fr 1fr; align-items:center; gap:10px; background:linear-gradient(135deg,rgba(227,24,55,0.2),rgba(180,10,35,0.2)); border:2px solid rgba(227,24,55,0.6); border-radius:12px; padding:18px 16px; box-shadow:0 4px 20px rgba(227,24,55,0.12);">
-        <div>
-          <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:rgba(255,107,122,0.7); margin-bottom:4px;">Combined Total</div>
-          <div style="font-size:15px; font-weight:700; color:#ff6b7a;">Total Optimization Lift</div>
-        </div>
-        <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Extra Impressions</div><div style="font-family:'DM Serif Display',serif; font-size:1.3rem; color:#fff;" id="opt-summary-impr">—</div></div>
-        <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Incr. Immunizations</div><div style="font-family:'DM Serif Display',serif; font-size:1.3rem; color:#fff;" id="opt-summary-imm">—</div></div>
-        <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Total Pharmacy Revenue</div><div style="font-family:'DM Serif Display',serif; font-size:1.3rem; color:#4ade80;" id="opt-summary-rev">—</div></div>
-        <div><div style="font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.35); margin-bottom:3px;">Total Retail Basket Revenue</div><div style="font-family:'DM Serif Display',serif; font-size:1.3rem; color:#f4a261;" id="opt-summary-basket">—</div></div>
-      </div>
-
-      <div style="font-size:10.5px; color:rgba(255,255,255,0.9); font-weight:700; margin-top:12px;">Revenue lift includes pharmacy reimbursement and retail basket attachment per incremental immunization, based on user inputs above.</div>
-    </div>
-    <div class="section-header" style="margin-top:28px;">
-      <h2>Engagement & Conversion Funnel</h2>
-      <span>From impression to immunization — two paths</span>
-    </div>
-    <div class="divider"></div>
-
-    <div style="background:#f0f9ff; border:1px solid #bde0f5; border-radius:10px; padding:14px 18px; margin-bottom:20px;">
-      <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#0077a3; margin-bottom:6px;">How the funnel works</div>
-      <div style="font-size:12.5px; color:var(--text-secondary); line-height:1.6;">
-        <strong>Path 1 — Online Schedulers:</strong> Media impressions drive site visits (CTR + VTR). A portion of site visitors schedule an appointment online. Of those, a % show up and complete their immunization.<br>
-        <strong>Path 2 — Walk-In Lift:</strong> Orchestrated media exposure — broader reach, better frequency, "no appointment needed" messaging — drives incremental walk-in store visits that convert to immunizations. This is the Semcasting lift: more people reached, more people acting.
-      </div>
-    </div>
-
-    <div style="font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--text-secondary); margin-bottom:12px;">Path 1 — Online Scheduling</div>
-    <div class="input-grid">
-      <div class="input-group">
-        <label>Click-Through Rate (CTR)</label>
-        <input type="range" id="ctr" min="0.1" max="5" step="0.1" value="0.6" oninput="updateROI()">
-        <div class="range-display"><span id="ctr-val">0.6</span>%</div>
-        <div class="range-hint">% of impressions that drive a site visit via click.</div>
-        <div class="benchmark-pills">
-          <span class="bpill">0.15% Display</span>
-          <span class="bpill">0.5–1% Email</span>
-          <span class="bpill">1–2% Social</span>
-        </div>
-      </div>
-      <div class="input-group">
-        <label>View-Through Rate (VTR)</label>
-        <input type="range" id="vtr" min="0.1" max="10" step="0.1" value="0.6" oninput="updateROI()">
-        <div class="range-display"><span id="vtr-val">0.6</span>%</div>
-        <div class="range-hint">% of impressions that drive a site visit via view-through (saw ad, visited later without clicking).</div>
-        <div class="benchmark-pills">
-          <span class="bpill">0.5% CTV</span>
-          <span class="bpill active-pill">0.6% Standard</span>
-          <span class="bpill">1.5% Video</span>
-        </div>
-      </div>
-      <div class="input-group">
-        <label>Site Visitor → Online Schedule Rate *</label>
-        <input type="range" id="online-sched-rate" min="1" max="40" step="1" value="2" oninput="updateROI()">
-        <div class="range-display"><span id="online-sched-rate-val">2</span>%</div>
-        <div class="range-hint">* Semcasting estimate. % of site visitors (from media) who complete an online vaccination appointment. Walgreens internal data would refine this.</div>
-        <div class="benchmark-pills">
-          <span class="bpill">1% Low</span>
-          <span class="bpill active-pill">2% Est.</span>
-          <span class="bpill">5% High</span>
-        </div>
-      </div>
-      <div class="input-group">
-        <label>Scheduled Appt → Immunization Rate *</label>
-        <input type="range" id="sched-conv" min="40" max="98" step="1" value="75" oninput="updateROI()">
-        <div class="range-display"><span id="sched-conv-val">75</span>%</div>
-        <div class="range-hint">* Semcasting estimate. % of scheduled appointments that result in a completed immunization (accounts for no-shows and cancellations).</div>
-        <div class="benchmark-pills">
-          <span class="bpill">60% Conservative</span>
-          <span class="bpill active-pill">75% Standard</span>
-          <span class="bpill">90% High</span>
+        <div style="background:linear-gradient(135deg,#0a1628,#0d2137); border-radius:12px; padding:20px 28px; text-align:center; flex-shrink:0; min-width:140px;">
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#f4a261; margin-bottom:6px;">Monthly</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:2.2rem; color:#fff; line-height:1;">$5K</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:6px;">$60K / year</div>
         </div>
       </div>
     </div>
 
-    <div style="font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--text-secondary); margin-top:24px; margin-bottom:12px;">Path 2 — Walk-In Lift from Orchestrated Media</div>
-    <div class="input-grid">
-      <div class="input-group">
-        <label>Incremental Walk-In Conversion Rate *</label>
-        <input type="range" id="walkin-conv" min="0.1" max="5" step="0.1" value="0.3" oninput="updateROI()">
-        <div class="range-display"><span id="walkin-conv-val">0.3</span>%</div>
-        <div class="range-hint">* Semcasting estimate. % of uniquely reached adults (impressions ÷ avg frequency) who walk into a Walgreens and get vaccinated — driven by "walk-in available" messaging, broader reach, and reduced friction.</div>
-        <div class="benchmark-pills">
-          <span class="bpill">0.1% Conservative</span>
-          <span class="bpill active-pill">0.3% Standard</span>
-          <span class="bpill">0.6% Aggressive</span>
+    <div style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:16px; box-shadow:var(--shadow);">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:280px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <div style="width:32px; height:32px; background:rgba(124,58,237,0.1); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">💉</div>
+            <div>
+              <div style="font-size:16px; font-weight:700; color:#1a1a2e;">3. Immunization Page Visitor Identification</div>
+              <div style="font-size:13px; color:#7c3aed; font-weight:600;">9M–12M high-intent visitors identified per 6-month flight</div>
+            </div>
+          </div>
+          <p style="font-size:14px; color:#374151; line-height:1.6; margin-bottom:14px;">Identifies visitors to Walgreens' immunization scheduling pages — including partial completions. <strong>No pixel or tag required.</strong> Cookie-free identification resolves anonymous visitors to household records.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:8px;">
+            <div style="background:#f5f3ff; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🌐 Immunization page visitors (1.5M–4M/mo)</div>
+            <div style="background:#f5f3ff; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">⚠️ Partial scheduling completions</div>
+            <div style="background:#f5f3ff; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🚫 No pixel or tag required</div>
+            <div style="background:#f5f3ff; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🏠 Resolved to household record</div>
+          </div>
+        </div>
+        <div style="background:linear-gradient(135deg,#0a1628,#0d2137); border-radius:12px; padding:20px 28px; text-align:center; flex-shrink:0; min-width:140px;">
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#a78bdb; margin-bottom:6px;">Monthly</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:2.2rem; color:#fff; line-height:1;">$5K</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:6px;">$60K / year</div>
         </div>
       </div>
     </div>
 
-    <!-- LIVE FUNNEL VISUALIZATION -->
-    <div style="background:var(--walgreen-dark); border-radius:14px; padding:22px 28px; margin-top:8px;">
-      <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:rgba(255,255,255,0.5); margin-bottom:18px;">Live Media Funnel</div>
-      <div style="display:flex; align-items:flex-start; gap:0; flex-wrap:nowrap; overflow-x:auto;">
-
-        <div style="flex-shrink:0; text-align:center; min-width:100px;">
-          <div style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.4); margin-bottom:6px;">Budget</div>
-          <div style="font-family:'DM Serif Display',serif; font-size:1.25rem; color:#fff;" id="funnel-budget">—</div>
-          <div style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:4px;">Media Spend</div>
+    <div style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:24px; box-shadow:var(--shadow);">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:280px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <div style="width:32px; height:32px; background:rgba(21,128,61,0.1); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">📍</div>
+            <div>
+              <div style="font-size:16px; font-weight:700; color:#1a1a2e;">4. Customer Journey Mapping</div>
+              <div style="font-size:13px; color:#15803d; font-weight:600;">Closed-loop measurement across paid, web, store &amp; immunization</div>
+            </div>
+          </div>
+          <p style="font-size:14px; color:#374151; line-height:1.6; margin-bottom:14px;">Tracks programmatic media impressions and ties them to website visits, store visits, and immunization conversions. Identifies real reach and frequency to prospects — not served impressions, but verified human contacts.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:8px;">
+            <div style="background:#f0fdf4; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">📺 Impression → web visit attribution</div>
+            <div style="background:#f0fdf4; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🏪 Impression → store visit attribution</div>
+            <div style="background:#f0fdf4; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">💉 Impression → immunization conversion</div>
+            <div style="background:#f0fdf4; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">📊 Real reach &amp; frequency (not served imps)</div>
+            <div style="background:#f0fdf4; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">🎯 Channel / placement / creative performance</div>
+            <div style="background:#f0fdf4; border-radius:8px; padding:8px 12px; font-size:13px; color:#374151;">⚡ Media optimization tools</div>
+          </div>
         </div>
-        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 6px; padding-top:28px;">
-          <div style="width:24px; height:2px; background:rgba(255,255,255,0.2);"></div>
-          <div style="font-size:9px; color:rgba(255,255,255,0.3); margin-top:3px;">÷ CPM</div>
+        <div style="background:linear-gradient(135deg,#0a1628,#0d2137); border-radius:12px; padding:20px 28px; text-align:center; flex-shrink:0; min-width:140px;">
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#4ade80; margin-bottom:6px;">Monthly</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:2.2rem; color:#fff; line-height:1;">$5K</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:6px;">$60K / year</div>
         </div>
-
-        <div style="flex-shrink:0; text-align:center; min-width:100px;">
-          <div style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.4); margin-bottom:6px;">Impressions</div>
-          <div style="font-family:'DM Serif Display',serif; font-size:1.25rem; color:#00b4d8;" id="funnel-impressions">—</div>
-          <div style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:4px;">Optimized Pool</div>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 6px; padding-top:28px;">
-          <div style="width:24px; height:2px; background:rgba(255,255,255,0.2);"></div>
-          <div style="font-size:9px; color:rgba(255,255,255,0.3); margin-top:3px;">CTR+VTR</div>
-        </div>
-
-        <div style="flex-shrink:0; text-align:center; min-width:100px;">
-          <div style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.4); margin-bottom:6px;">Site Visitors</div>
-          <div style="font-family:'DM Serif Display',serif; font-size:1.25rem; color:#f4a261;" id="funnel-clicks">—</div>
-          <div style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:4px;">Clicks + View-Throughs</div>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 6px; padding-top:28px;">
-          <div style="width:24px; height:2px; background:rgba(255,255,255,0.2);"></div>
-          <div style="font-size:9px; color:rgba(255,255,255,0.3); margin-top:3px;">schedule</div>
-        </div>
-
-        <div style="flex-shrink:0; text-align:center; min-width:100px;">
-          <div style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.4); margin-bottom:6px;">Scheduled</div>
-          <div style="font-family:'DM Serif Display',serif; font-size:1.25rem; color:#a8dadc;" id="funnel-scheduled">—</div>
-          <div style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:4px;">Online Appts</div>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 6px; padding-top:28px;">
-          <div style="width:24px; height:2px; background:rgba(255,255,255,0.2);"></div>
-          <div style="font-size:9px; color:rgba(255,255,255,0.3); margin-top:3px;">÷ freq → unique reach</div>
-        </div>
-
-        <div style="flex-shrink:0; text-align:center; min-width:100px;">
-          <div style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.4); margin-bottom:6px;">Walk-In Lift</div>
-          <div style="font-family:'DM Serif Display',serif; font-size:1.25rem; color:#a8dadc;" id="funnel-walkins">—</div>
-          <div style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:4px;">Media-Driven</div>
-        </div>
-        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 6px; padding-top:28px;">
-          <div style="width:24px; height:2px; background:rgba(255,255,255,0.2);"></div>
-          <div style="font-size:9px; color:rgba(255,255,255,0.3); margin-top:3px;">+ orch.</div>
-        </div>
-
-        <div style="flex-shrink:0; text-align:center; min-width:100px;">
-          <div style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,0.4); margin-bottom:6px;">Immunizations</div>
-          <div style="font-family:'DM Serif Display',serif; font-size:1.25rem; color:var(--walgreen-red);" id="funnel-immunizations">—</div>
-          <div style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:4px;">Total Completed</div>
-        </div>
-
       </div>
     </div>
 
-
-        <div class="footnote" style="margin-top:20px;">
-      <p><strong>How to read this:</strong> The optimization levers above represent the incremental impact of replacing cookie-based audience targeting and siloed channel execution with Semcasting's identity-resolved, coordinated approach. Revenue includes both pharmacy reimbursement and retail basket attachment per incremental immunization completed.</p>
-      <p style="margin-top:10px;">† <strong>Avg Revenue per Immunization:</strong> CMS Medicare Part B 2024–25 payment allowances range from $10.93 to $83.49 depending on vaccine type (standard vs. high-dose/adjuvanted). Default set to $60 reflecting a blended payer mix of Medicare, commercial insurance, and self-pay. Source: CMS.gov / AAPC, 2024.<br>
-      * <strong>Retail Basket Attachment Rate &amp; Value:</strong> Semcasting estimates. No publicly available Walgreens-specific basket data exists. Walgreens can provide actual figures to refine this model.</p>
+    <div style="background:linear-gradient(135deg,#0a1628 0%,#0d2137 50%,#0a1628 100%); border-radius:16px; padding:28px; border:2px solid rgba(227,24,55,0.3);">
+      <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:rgba(227,24,55,0.8); margin-bottom:20px;">Investment Summary</div>
+      <div style="display:grid; grid-template-columns:1fr auto auto; gap:0; border-radius:10px; overflow:hidden;">
+        <div style="background:rgba(255,255,255,0.05); padding:10px 16px; font-size:13px; font-weight:700; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:.05em;">Service</div>
+        <div style="background:rgba(255,255,255,0.05); padding:10px 16px; font-size:13px; font-weight:700; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:.05em; text-align:right;">Monthly</div>
+        <div style="background:rgba(255,255,255,0.05); padding:10px 16px; font-size:13px; font-weight:700; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:.05em; text-align:right;">Annual</div>
+        <div style="padding:12px 16px; font-size:14px; color:rgba(255,255,255,0.85); border-top:1px solid rgba(255,255,255,0.06);">1. More Identity Data (+15M to Epsilon)</div>
+        <div style="padding:12px 16px; font-size:14px; font-weight:700; color:#fff; text-align:right; border-top:1px solid rgba(255,255,255,0.06);">$3,500</div>
+        <div style="padding:12px 16px; font-size:14px; color:rgba(255,255,255,0.6); text-align:right; border-top:1px solid rgba(255,255,255,0.06);">$42,000</div>
+        <div style="padding:12px 16px; font-size:14px; color:rgba(255,255,255,0.85); border-top:1px solid rgba(255,255,255,0.06);">2a. WAG Walk-in Traffic (+18M non-loyalty)</div>
+        <div style="padding:12px 16px; font-size:14px; font-weight:700; color:#fff; text-align:right; border-top:1px solid rgba(255,255,255,0.06);">$5,000</div>
+        <div style="padding:12px 16px; font-size:14px; color:rgba(255,255,255,0.6); text-align:right; border-top:1px solid rgba(255,255,255,0.06);">$60,000</div>
+        <div style="padding:12px 16px; font-size:14px; color:rgba(255,255,255,0.85); border-top:1px solid rgba(255,255,255,0.06);">2b. Competitive Pharmacy Traffic</div>
+        <div style="padding:12px 16px; font-size:14px; font-weight:700; color:#fff; text-align:right; border-top:1px solid rgba(255,255,255,0.06);">$5,000</div>
+        <div style="padding:12px 16px; font-size:14px; color:rgba(255,255,255,0.6); text-align:right; border-top:1px solid rgba(255,255,255,0.06);">$60,000</div>
+        <div style="padding:12px 16px; font-size:14px; color:rgba(255,255,255,0.85); border-top:1px solid rgba(255,255,255,0.06);">3. Immunization Page Visitor ID</div>
+        <div style="padding:12px 16px; font-size:14px; font-weight:700; color:#fff; text-align:right; border-top:1px solid rgba(255,255,255,0.06);">$5,000</div>
+        <div style="padding:12px 16px; font-size:14px; color:rgba(255,255,255,0.6); text-align:right; border-top:1px solid rgba(255,255,255,0.06);">$60,000</div>
+        <div style="padding:12px 16px; font-size:14px; color:rgba(255,255,255,0.85); border-top:1px solid rgba(255,255,255,0.06);">4. Customer Journey Mapping</div>
+        <div style="padding:12px 16px; font-size:14px; font-weight:700; color:#fff; text-align:right; border-top:1px solid rgba(255,255,255,0.06);">$5,000</div>
+        <div style="padding:12px 16px; font-size:14px; color:rgba(255,255,255,0.6); text-align:right; border-top:1px solid rgba(255,255,255,0.06);">$60,000</div>
+        <div style="padding:14px 16px; font-size:15px; font-weight:700; color:#fff; border-top:2px solid rgba(227,24,55,0.4); background:rgba(227,24,55,0.08);">Total — All 5 Services</div>
+        <div style="padding:14px 16px; font-size:15px; font-weight:700; color:#e31837; text-align:right; border-top:2px solid rgba(227,24,55,0.4); background:rgba(227,24,55,0.08);">$23,500</div>
+        <div style="padding:14px 16px; font-size:15px; font-weight:700; color:rgba(227,24,55,0.7); text-align:right; border-top:2px solid rgba(227,24,55,0.4); background:rgba(227,24,55,0.08);">$282,000</div>
+      </div>
     </div>
 
   </div>
@@ -1031,7 +956,7 @@
 
     <div style="margin-bottom:8px; margin-top:4px;">
       <h2 style="font-family:'DM Serif Display',serif; font-size:1.35rem; font-weight:400;">Draft Orchestration Playbooks</h2>
-      <p style="font-size:15px; color:var(--text-muted); margin-top:4px;">Three orchestration tracks cover the full 180M addressable audience. Semcasting's identity spine connects each person to the channels they can be reached on — then coordinates frequency and sequencing across Paid Digital and Owned &amp; Operated channels.</p>
+      <p style="font-size:15px; color:var(--text-muted); margin-top:4px;">Three orchestration tracks cover the full 135M deduplicated addressable audience. Semcasting's identity spine connects each person to the channels they can be reached on — then coordinates frequency and sequencing across Paid Digital and Owned &amp; Operated channels.</p>
     </div>
 
     <!-- TRIGGER LOGIC CALLOUT -->
@@ -1105,10 +1030,267 @@
     <div id="journey-container"></div>
 
     <div class="footnote" style="margin-top:28px;">
-      <p><strong>Key orchestration principle:</strong> Semcasting's identity spine maps each of the 180M addressable individuals to the channels they can be reached on — then coordinates frequency and sequencing across Paid Digital and Owned &amp; Operated channels. The trigger logic above fires in real time: engagement signals from any channel immediately update the plan for all other channels, eliminating wasted spend and preventing over-messaging.</p>
+      <p><strong>Key orchestration principle:</strong> Semcasting's identity spine maps each of the 135M addressable individuals to the channels they can be reached on — then coordinates frequency and sequencing across Paid Digital and Owned &amp; Operated channels. The trigger logic above fires in real time: engagement signals from any channel immediately update the plan for all other channels, eliminating wasted spend and preventing over-messaging.</p>
     </div>
 
-  </div></div><!-- /main -->
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- TAB 4: REVENUE ROI                             -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="tab-revenue" class="tab-content">
+
+    <!-- Hidden conversion inputs needed by updateROI legacy function -->
+    <input type="hidden" id="ctr" value="1.2">
+    <input type="hidden" id="vtr" value="3.5">
+    <input type="hidden" id="online-sched-rate" value="8">
+    <input type="hidden" id="sched-conv" value="85">
+    <input type="hidden" id="walkin-conv" value="0.8">
+    <input type="hidden" id="total-eligible" value="135000000">
+    <input type="hidden" id="media-budget" value="5000000">
+    <input type="hidden" id="cpm" value="10">
+    <input type="hidden" id="targeting-lift" value="0">
+    <input type="hidden" id="orch-lift" value="0">
+    <input type="hidden" id="frequency-pct" value="0">
+
+    <div style="margin-bottom:24px; margin-top:4px;">
+      <h2 style="font-family:'DM Serif Display',serif; font-size:1.35rem; font-weight:400;">Revenue ROI — Incremental Impact of Semcasting</h2>
+      <p style="font-size:14px; color:var(--text-muted); margin-top:4px;">Estimated revenue return from the three audience opportunities identified in Tab 1, against a $282K annual Semcasting investment</p>
+    </div>
+
+    <!-- SHARED REVENUE ASSUMPTIONS -->
+    <div class="section-header" style="margin-top:0;"><h2>Revenue Assumptions</h2></div>
+    <div class="input-grid">
+      <div class="input-group">
+        <label>Avg Revenue per Immunization†</label>
+        <input type="range" id="roi-rev-per-imm" min="10" max="120" step="1" value="60" oninput="updateROITab()">
+        <div class="input-row"><span class="input-prefix">$</span><div class="range-display"><span id="roi-rev-per-imm-val">60</span></div></div>
+        <div class="range-hint">† CMS Medicare Part B flu vaccine payment range: $10.93–$83.49. Default $60 reflects blended average across Medicare and commercial payers.</div>
+      </div>
+      <div class="input-group">
+        <label>Retail Basket Attachment Rate</label>
+        <input type="range" id="roi-basket-attach" min="0" max="60" step="1" value="25" oninput="updateROITab()">
+        <div class="input-row"><div class="range-display"><span id="roi-basket-attach-val">25</span><span class="input-suffix">%</span></div></div>
+      </div>
+      <div class="input-group">
+        <label>Avg Retail Basket Value</label>
+        <input type="range" id="roi-basket-value" min="5" max="60" step="1" value="20" oninput="updateROITab()">
+        <div class="input-row"><span class="input-prefix">$</span><div class="range-display"><span id="roi-basket-value-val">20</span></div></div>
+      </div>
+    </div>
+
+    <!-- DRIVER 1: WALK-IN CUSTOMERS -->
+    <div style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:16px; box-shadow:var(--shadow);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <div style="width:32px; height:32px; background:rgba(0,180,216,0.1); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">🚶</div>
+        <div>
+          <div style="font-size:16px; font-weight:700; color:#1a1a2e;">1. Identified Walk-in Customers</div>
+          <div style="font-size:13px; color:#0077a3; font-weight:600;">18.5M WAG non-loyalty + 26.4M competitive = 44.9M identified</div>
+        </div>
+      </div>
+      <div class="input-grid">
+        <div class="input-group">
+          <label>WAG Non-Loyalty Audience</label>
+          <input type="range" id="roi-walkin-wag" min="0" max="30000000" step="500000" value="18500000" oninput="updateROITab()">
+          <div class="input-row"><div class="range-display"><span id="roi-walkin-wag-val">18.5M</span></div></div>
+        </div>
+        <div class="input-group">
+          <label>Competitive Pharmacy Audience</label>
+          <input type="range" id="roi-walkin-comp" min="0" max="40000000" step="500000" value="26400000" oninput="updateROITab()">
+          <div class="input-row"><div class="range-display"><span id="roi-walkin-comp-val">26.4M</span></div></div>
+        </div>
+        <div class="input-group">
+          <label>Immunization Conversion Rate</label>
+          <input type="range" id="roi-walkin-cvr" min="0.01" max="2" step="0.01" value="0.05" oninput="updateROITab()">
+          <div class="input-row"><div class="range-display"><span id="roi-walkin-cvr-val">0.5</span><span class="input-suffix">%</span></div></div>
+          <div class="range-hint">Conservative: 0.1% of identified walk-in visitors convert to an immunization through paid media activation. Industry flu campaign benchmarks: 0.05–0.2%.</div>
+        </div>
+      </div>
+      <div style="background:linear-gradient(135deg,#0a1628,#0d2137); border-radius:10px; padding:16px 20px; margin-top:12px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; text-align:center;">
+        <div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">Incr. Immunizations</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:#fff;" id="roi-walkin-imm">—</div>
+        </div>
+        <div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">Pharmacy Revenue</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:#4ade80;" id="roi-walkin-pharma">—</div>
+        </div>
+        <div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">Total incl. Retail Basket</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:#4ade80;" id="roi-walkin-total">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRIVER 2: IDENTITY MATCH LIFT -->
+    <div style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:16px; box-shadow:var(--shadow);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <div style="width:32px; height:32px; background:rgba(21,128,61,0.1); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">🔗</div>
+        <div>
+          <div style="font-size:16px; font-weight:700; color:#1a1a2e;">2. Increased Match Rates — Adobe CRM to Epsilon</div>
+          <div style="font-size:13px; color:#15803d; font-weight:600;">+15M loyalty members now digitally reachable · Digital Activity Score included</div>
+        </div>
+      </div>
+      <p style="font-size:14px; color:#374151; line-height:1.6; margin-bottom:12px;">Semcasting adds identity data (MAIDs, email addresses, Blockgraph IDs, iHeart IDs) to improve match rates from Adobe to Epsilon — unlocking 15M additional loyalty members invisible to current activation.</p>
+      <div style="background:rgba(0,180,216,0.06); border:1px solid rgba(0,180,216,0.2); border-left:3px solid #0077a3; border-radius:8px; padding:12px 16px; margin-bottom:16px;">
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#0077a3; margin-bottom:4px;">Also Included: Digital Activity Score (DMEI)</div>
+        <div style="font-size:13px; color:#374151; line-height:1.6;">Scores each loyalty member 1–11 for online activity. Enables the media agency to prioritize digital channels for high-activity members and route low-activity seniors to direct mail or IVR — reducing waste and improving conversion across the newly matched audience.</div>
+      </div>
+      <div class="input-grid">
+        <div class="input-group">
+          <label>Incremental Matched Audience</label>
+          <input type="range" id="roi-match-audience" min="0" max="25000000" step="500000" value="15000000" oninput="updateROITab()">
+          <div class="input-row"><div class="range-display"><span id="roi-match-audience-val">15.0M</span></div></div>
+        </div>
+        <div class="input-group">
+          <label>Immunization Conversion Rate</label>
+          <input type="range" id="roi-match-cvr" min="0.01" max="2" step="0.01" value="0.1" oninput="updateROITab()">
+          <div class="input-row"><div class="range-display"><span id="roi-match-cvr-val">0.8</span><span class="input-suffix">%</span></div></div>
+          <div class="range-hint">Conservative: 0.2% of newly reachable loyalty members convert via paid media. Known customers have higher propensity than cold audiences.</div>
+        </div>
+      </div>
+      <div style="background:linear-gradient(135deg,#0a1628,#0d2137); border-radius:10px; padding:16px 20px; margin-top:12px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; text-align:center;">
+        <div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">Incr. Immunizations</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:#fff;" id="roi-match-imm">—</div>
+        </div>
+        <div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">Pharmacy Revenue</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:#4ade80;" id="roi-match-pharma">—</div>
+        </div>
+        <div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">Total incl. Retail Basket</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:#4ade80;" id="roi-match-total">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRIVER 3: IMMUNIZATION PAGE VISITORS -->
+    <div style="background:#fff; border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:24px; box-shadow:var(--shadow);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <div style="width:32px; height:32px; background:rgba(124,58,237,0.1); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">💉</div>
+        <div>
+          <div style="font-size:16px; font-weight:700; color:#1a1a2e;">3. Walgreens.com — Immunization Page Visitors</div>
+          <div style="font-size:13px; color:#7c3aed; font-weight:600;">9M–12M high-intent visitors per 6-month flight</div>
+        </div>
+      </div>
+      <div class="input-grid">
+        <div class="input-group">
+          <label>Identified Page Visitors (6-month flight)</label>
+          <input type="range" id="roi-web-audience" min="1000000" max="15000000" step="500000" value="9000000" oninput="updateROITab()">
+          <div class="input-row"><div class="range-display"><span id="roi-web-audience-val">9.0M</span></div></div>
+          <div class="range-hint">Conservative end of the 9M–12M range.</div>
+        </div>
+        <div class="input-group">
+          <label>Retargeting Conversion Rate</label>
+          <input type="range" id="roi-web-cvr" min="0.01" max="2" step="0.01" value="0.3" oninput="updateROITab()">
+          <div class="input-row"><div class="range-display"><span id="roi-web-cvr-val">2.0</span><span class="input-suffix">%</span></div></div>
+          <div class="range-hint">% of identified page visitors who subsequently schedule and complete an immunization. Conservative: 0.3% — highest intent of the three segments (already visited the scheduling page), retargeted via paid media.</div>
+        </div>
+      </div>
+      <div style="background:linear-gradient(135deg,#0a1628,#0d2137); border-radius:10px; padding:16px 20px; margin-top:12px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; text-align:center;">
+        <div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">Incr. Immunizations</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:#fff;" id="roi-web-imm">—</div>
+        </div>
+        <div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">Pharmacy Revenue</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:#4ade80;" id="roi-web-pharma">—</div>
+        </div>
+        <div>
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">Total incl. Retail Basket</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:1.5rem; color:#4ade80;" id="roi-web-total">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUMMARY ROI PANEL -->
+    <div style="background:linear-gradient(135deg,#0a1628 0%,#0d2137 50%,#0a1628 100%); border-radius:18px; padding:32px; border:2px solid rgba(227,24,55,0.4); margin-bottom:24px;">
+      <div style="font-family:'DM Serif Display',serif; font-size:1.4rem; color:#fff; margin-bottom:24px;">Total Incremental Impact</div>
+
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px;">
+        <div style="text-align:center; padding:16px; background:rgba(255,255,255,0.05); border-radius:10px;">
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;">Total Immunizations</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:2rem; color:#fff;" id="roi-total-imm">—</div>
+        </div>
+        <div style="text-align:center; padding:16px; background:rgba(255,255,255,0.05); border-radius:10px;">
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;">Total Revenue incl. Retail Basket</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:2rem; color:#4ade80;" id="roi-total-rev">—</div>
+        </div>
+        <div style="text-align:center; padding:16px; background:rgba(255,255,255,0.05); border-radius:10px;">
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;">Semcasting Annual Cost</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:2rem; color:#e31837;">$282K</div>
+        </div>
+        <div style="text-align:center; padding:16px; background:rgba(227,24,55,0.1); border-radius:10px; border:1px solid rgba(227,24,55,0.3);">
+          <div style="font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;">Estimated ROI</div>
+          <div style="font-family:'DM Serif Display',serif; font-size:2rem; color:#fff;" id="roi-pct">—</div>
+        </div>
+      </div>
+
+      <!-- Breakdown table -->
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+            <th style="text-align:left; padding:8px 0; font-size:11px; font-weight:700; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em;">Driver</th>
+            <th style="text-align:right; padding:8px 12px; font-size:11px; font-weight:700; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:.06em;">Immunizations</th>
+            <th style="text-align:right; padding:8px 12px; font-size:11px; font-weight:700; color:#4ade80; text-transform:uppercase; letter-spacing:.06em;">Pharmacy Revenue</th>
+            <th style="text-align:right; padding:8px 12px; font-size:11px; font-weight:700; color:#f4a261; text-transform:uppercase; letter-spacing:.06em;">Retail Basket</th>
+            <th style="text-align:right; padding:8px 12px; font-size:11px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:.06em;">Total Incremental Revenue</th>
+            <th style="text-align:right; padding:8px 0; font-size:11px; font-weight:700; color:rgba(227,24,55,0.9); text-transform:uppercase; letter-spacing:.06em;">ROI vs $282K</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+            <td style="padding:12px 0; font-size:13px; color:rgba(255,255,255,0.8);">🚶 Walk-in Customers</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#fff;" id="roi-summary-walkin-imm">—</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#4ade80;" id="roi-summary-walkin-pharma">—</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#f4a261;" id="roi-summary-walkin-basket">—</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#fff;" id="roi-summary-walkin-rev">—</td>
+            <td style="padding:12px 0; text-align:right; font-size:1rem; font-weight:700; color:#e31837;" id="roi-summary-walkin-roi">—</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+            <td style="padding:12px 0; font-size:13px; color:rgba(255,255,255,0.8);">🔗 Identity Match Lift</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#fff;" id="roi-summary-match-imm">—</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#4ade80;" id="roi-summary-match-pharma">—</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#f4a261;" id="roi-summary-match-basket">—</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#fff;" id="roi-summary-match-rev">—</td>
+            <td style="padding:12px 0; text-align:right; font-size:1rem; font-weight:700; color:#e31837;" id="roi-summary-match-roi">—</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+            <td style="padding:12px 0; font-size:13px; color:rgba(255,255,255,0.8);">💉 Immunization Page Visitors</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#fff;" id="roi-summary-web-imm">—</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#4ade80;" id="roi-summary-web-pharma">—</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#f4a261;" id="roi-summary-web-basket">—</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#fff;" id="roi-summary-web-rev">—</td>
+            <td style="padding:12px 0; text-align:right; font-size:1rem; font-weight:700; color:#e31837;" id="roi-summary-web-roi">—</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 0; font-size:13px; font-weight:700; color:#fff;">Total</td>
+            <td style="padding:14px 12px; text-align:right; font-size:1.1rem; font-weight:700; color:#fff;" id="roi-summary-total-imm">—</td>
+            <td style="padding:14px 12px; text-align:right; font-size:1.1rem; font-weight:700; color:#4ade80;" id="roi-summary-total-pharma">—</td>
+            <td style="padding:14px 12px; text-align:right; font-size:1.1rem; font-weight:700; color:#f4a261;" id="roi-summary-total-basket">—</td>
+            <td style="padding:14px 12px; text-align:right; font-size:1.1rem; font-weight:700; color:#fff; border-top:1px solid rgba(255,255,255,0.2);" id="roi-summary-total-rev">—</td>
+            <td style="padding:14px 0; text-align:right; font-size:1.1rem; font-weight:700; color:#e31837; border-top:1px solid rgba(255,255,255,0.2);" id="roi-summary-total-roi">—</td>
+          </tr>
+        </tbody>
+      </table>m; font-weight:700; color:#fff;" id="roi-summary-match-imm">—</td>
+            <td style="padding:12px 0; text-align:right; font-size:1rem; font-weight:700; color:#4ade80;" id="roi-summary-match-rev">—</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+            <td style="padding:12px 0; font-size:13px; color:rgba(255,255,255,0.8);">💉 Immunization Page Visitors</td>
+            <td style="padding:12px; text-align:right; font-size:1rem; font-weight:700; color:#fff;" id="roi-summary-web-imm">—</td>
+            <td style="padding:12px 0; text-align:right; font-size:1rem; font-weight:700; color:#4ade80;" id="roi-summary-web-rev">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footnote">
+      <p>† Revenue includes pharmacy reimbursement plus estimated retail basket attachment. Conversion rates are conservative estimates — Walgreens' actual data would sharpen these projections. All figures are incremental to today's baseline.</p>
+    </div>
+
+  </div>
+</div></div><!-- /main -->
 
 <script>
 // ── HELPERS ────────────────────────────────────────
@@ -1135,6 +1317,7 @@ function switchTab(tab, btn) {
   document.getElementById('tab-' + tab).classList.add('active');
   btn.classList.add('active');
   if (tab === 'roi') updateROI();
+  if (tab === 'revenue') { updateROI(); updateROITab(); }
   if (tab === 'journey') {
     if (!document.getElementById('journey-container').innerHTML.trim()) {
       selectTrack(1);
@@ -1145,10 +1328,100 @@ function switchTab(tab, btn) {
 // Initialize on load
 window.addEventListener('DOMContentLoaded', function() {
   updateROI();
+  updateROITab();
   selectTrack(1);
 });
 
-// ── OPPORTUNITY TAB ────────────────────────────────
+// ── REVENUE ROI TAB ──────────────────────────────────
+function updateROITab() {
+  const semcastingCost = 282000;
+  const revPerImm     = parseFloat(document.getElementById('roi-rev-per-imm')?.value || 60);
+  const basketAttach  = parseFloat(document.getElementById('roi-basket-attach')?.value || 25) / 100;
+  const basketValue   = parseFloat(document.getElementById('roi-basket-value')?.value || 20);
+  const effectiveBasket = basketAttach * basketValue;
+  const revenuePerImm = revPerImm + effectiveBasket;
+
+  // Update slider labels
+  const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  setVal('roi-rev-per-imm-val', revPerImm);
+  setVal('roi-basket-attach-val', Math.round(basketAttach * 100));
+  setVal('roi-basket-value-val', basketValue);
+
+  const fmtNum = n => n >= 1000000 ? (n/1000000).toFixed(1)+'M' : n >= 1000 ? (n/1000).toFixed(0)+'K' : Math.round(n).toLocaleString();
+  const fmtDol = n => n >= 1000000 ? '$'+(n/1000000).toFixed(1)+'M' : n >= 1000 ? '$'+(n/1000).toFixed(0)+'K' : '$'+Math.round(n).toLocaleString();
+
+  // Driver 1: Walk-in Customers
+  const walkinWag  = parseFloat(document.getElementById('roi-walkin-wag')?.value || 18500000);
+  const walkinComp = parseFloat(document.getElementById('roi-walkin-comp')?.value || 26400000);
+  const walkinCVR  = parseFloat(document.getElementById('roi-walkin-cvr')?.value || 0.05) / 100;
+  const walkinImm  = Math.round((walkinWag + walkinComp) * walkinCVR);
+  const walkinRev  = walkinImm * revenuePerImm;
+  const walkinPharma = walkinImm * revPerImm;
+  setVal('roi-walkin-wag-val', fmtNum(walkinWag));
+  setVal('roi-walkin-comp-val', fmtNum(walkinComp));
+  setVal('roi-walkin-cvr-val', parseFloat(document.getElementById('roi-walkin-cvr')?.value || 0.05).toFixed(2));
+  setVal('roi-walkin-imm', fmtNum(walkinImm));
+  setVal('roi-walkin-pharma', fmtDol(walkinPharma));
+  setVal('roi-walkin-total', fmtDol(walkinRev));
+  setVal('roi-summary-walkin-imm', fmtNum(walkinImm));
+  setVal('roi-summary-walkin-pharma', fmtDol(walkinPharma));
+  setVal('roi-summary-walkin-basket', fmtDol(walkinImm * effectiveBasket));
+  setVal('roi-summary-walkin-rev', fmtDol(walkinRev));
+  setVal('roi-summary-walkin-roi', walkinRev > 0 ? Math.round((walkinRev - semcastingCost) / semcastingCost * 100).toLocaleString() + '%' : '—');
+
+  // Driver 2: Identity Match Lift
+  const matchAud   = parseFloat(document.getElementById('roi-match-audience')?.value || 15000000);
+  const matchCVR   = parseFloat(document.getElementById('roi-match-cvr')?.value || 0.1) / 100;
+  const matchImm   = Math.round(matchAud * matchCVR);
+  const matchRev   = matchImm * revenuePerImm;
+  const matchPharma = matchImm * revPerImm;
+  setVal('roi-match-audience-val', fmtNum(matchAud));
+  setVal('roi-match-cvr-val', parseFloat(document.getElementById('roi-match-cvr')?.value || 0.1).toFixed(2));
+  setVal('roi-match-imm', fmtNum(matchImm));
+  setVal('roi-match-pharma', fmtDol(matchPharma));
+  setVal('roi-match-total', fmtDol(matchRev));
+  setVal('roi-summary-match-imm', fmtNum(matchImm));
+  setVal('roi-summary-match-pharma', fmtDol(matchPharma));
+  setVal('roi-summary-match-basket', fmtDol(matchImm * effectiveBasket));
+  setVal('roi-summary-match-rev', fmtDol(matchRev));
+  setVal('roi-summary-match-roi', matchRev > 0 ? Math.round((matchRev - semcastingCost) / semcastingCost * 100).toLocaleString() + '%' : '—');
+
+  // Driver 3: Immunization Page Visitors
+  const webAud     = parseFloat(document.getElementById('roi-web-audience')?.value || 9000000);
+  const webCVR     = parseFloat(document.getElementById('roi-web-cvr')?.value || 0.3) / 100;
+  const webImm     = Math.round(webAud * webCVR);
+  const webRev     = webImm * revenuePerImm;
+  const webPharma  = webImm * revPerImm;
+  setVal('roi-web-audience-val', fmtNum(webAud));
+  setVal('roi-web-cvr-val', parseFloat(document.getElementById('roi-web-cvr')?.value || 0.3).toFixed(2));
+  setVal('roi-web-imm', fmtNum(webImm));
+  setVal('roi-web-pharma', fmtDol(webPharma));
+  setVal('roi-web-total', fmtDol(webRev));
+  setVal('roi-summary-web-imm', fmtNum(webImm));
+  setVal('roi-summary-web-pharma', fmtDol(webPharma));
+  setVal('roi-summary-web-basket', fmtDol(webImm * effectiveBasket));
+  setVal('roi-summary-web-rev', fmtDol(webRev));
+  setVal('roi-summary-web-roi', webRev > 0 ? Math.round((webRev - semcastingCost) / semcastingCost * 100).toLocaleString() + '%' : '—');
+
+  // Totals
+  const totalImm = walkinImm + matchImm + webImm;
+  const totalRev = walkinRev + matchRev + webRev;
+  const totalPharma = walkinPharma + matchPharma + webPharma;
+  const totalBasket = totalImm * effectiveBasket;
+
+  // Totals row in table
+  setVal('roi-summary-total-imm', fmtNum(totalImm));
+  setVal('roi-summary-total-pharma', fmtDol(totalPharma));
+  setVal('roi-summary-total-basket', fmtDol(totalBasket));
+  setVal('roi-summary-total-rev', fmtDol(totalRev));
+  setVal('roi-summary-total-roi', totalRev > 0 ? Math.round((totalRev - semcastingCost) / semcastingCost * 100).toLocaleString() + '%' : '—');
+  const roi = totalRev > 0 ? ((totalRev - semcastingCost) / semcastingCost * 100) : 0;
+  setVal('roi-total-imm', fmtNum(totalImm));
+  setVal('roi-total-rev', fmtDol(totalRev));
+  setVal('roi-pct', roi > 0 ? Math.round(roi).toLocaleString() + '%' : '—');
+}
+
+
 function applyOpportunityPreset(preset) {
   // reserved for future use
 }
@@ -1215,7 +1488,7 @@ function updateROI() {
   const totalEligible   = getVal('total-eligible');
   const mediaBudget     = getVal('media-budget');
   const cpm             = getVal('cpm');
-  const frequencyPct    = getVal('frequency-pct') / 100;
+  const frequencyPct    = 0; // frequency control removed from UI
   const ctr             = getVal('ctr') / 100;
   const vtr             = getVal('vtr') / 100;
   const onlineSchedRate = getVal('online-sched-rate') / 100;
@@ -1305,7 +1578,7 @@ function updateROI() {
   const targetingRev  = revFromImm(targetingImm);
 
   const totalOptImpr = frequencyImpr;
-  const totalOptImm  = frequencyImm + orchImm + targetingImm;
+  const totalOptImm  = orchImm + targetingImm; // frequency removed
   const totalOptRev  = frequencyRev + orchRev + targetingRev;
 
   set('impact-frequency-impr',   fmt(frequencyImpr));
@@ -1352,6 +1625,15 @@ function updateROI() {
   set('result-combined-rev',    fmtDollar(incrTotalRev));
   set('result-cpi',             incrImm > 0 ? '$' + cpi : '—');
   set('result-lift-pct',        '+' + Math.round(orchLift * 100) + '%');
+
+  // ROI vs Semcasting annual cost ($282K)
+  const totalIncrementalRev = (totalOptImm * revPerImm) + basketRevFromImm(totalOptImm);
+  const semcastingAnnualCost = 282000;
+  const roi = ((totalIncrementalRev - semcastingAnnualCost) / semcastingAnnualCost * 100);
+  set('total-incremental-rev', fmt(totalIncrementalRev));
+  if (document.getElementById('estimated-roi')) {
+    document.getElementById('estimated-roi').textContent = roi > 0 ? Math.round(roi) + '%' : '—';
+  }
 }
 
 // ── JOURNEY TAB ────────────────────────────────────
@@ -1372,7 +1654,7 @@ const tracks = {
       { icon: '📲', label: 'Social',               color: '#6a4c93', months: [0,0,1,1,1,0], lift: '+6–8%'   },
       { icon: '📺', label: 'CTV',                  color: '#e76f51', months: [1,1,1,0,0,0], lift: null      },
     ],
-    insight: 'Walgreens already has email, SMS, and push records for these audiences via the loyalty app — Semcasting lifts match rate from 70% to 90%, adding 20M previously unreachable loyalty members to the targetable pool. The identity spine connects CRM data to paid media channels, enabling true cross-channel frequency control. Trigger logic fires in real time: a push tap or email open immediately updates the paid media plan.',
+    insight: 'Walgreens already has email, SMS, and push records for these audiences via the loyalty app — Semcasting lifts match rate from 70% to 85%, adding 20M previously unreachable loyalty members to the targetable pool. The identity spine connects CRM data to paid media channels, enabling true cross-channel frequency control. Trigger logic fires in real time: a push tap or email open immediately updates the paid media plan.',
   },
   2: {
     title: 'Track 2: Paid Media Only',
@@ -1388,7 +1670,7 @@ const tracks = {
       { icon: '📬', label: 'Direct Mail',           color: '#00b4d8', months: [0,0,1,1,0,0], lift: '+5%'    },
       { icon: '📺', label: 'CTV (Urgency)',         color: '#e76f51', months: [0,0,0,1,1,1], lift: '+4%'    },
     ],
-    insight: 'This track is entirely beyond Epsilon\'s reach. Semcasting identifies two high-value audiences through footfall intelligence: (1) <strong>Competitor Pharmacy Visitors</strong> — device IDs observed at CVS, Walmart, Rite Aid, and grocery pharmacies, resolved to household records and activated in paid media. These are behaviorally pharmacy-active consumers who have never set foot in a Walgreens. (2) <strong>Non-Loyalty Walgreens Visitors</strong> — people who already visit Walgreens stores but have no loyalty card or CRM record, identified via store visit signals and matched to a reachable digital ID. Both segments are conquest and enrollment opportunities that Walgreens is currently leaving completely unaddressed.',
+    insight: 'This track represents net-new audiences not yet reachable through today\'s identity stack. Semcasting identifies two high-value audiences through footfall intelligence: (1) <strong>Competitor Pharmacy Visitors</strong> — device IDs observed at CVS, Walmart, and grocery pharmacies, resolved to household records and activated in paid media. These are behaviorally pharmacy-active consumers who have never set foot in a Walgreens. (2) <strong>Non-Loyalty Walgreens Visitors</strong> — people who already visit Walgreens stores but have no loyalty card or CRM record, identified via store visit signals and matched to a reachable digital ID. Both segments are conquest and enrollment opportunities that Walgreens is currently leaving completely unaddressed.',
   },
   3: {
     title: 'Track 3: High-Value / High-Touch',
@@ -1405,7 +1687,7 @@ const tracks = {
       { icon: '📧', label: 'Email',                color: '#e76f51', months: [0,0,0,1,1,1], lift: '+5%'   },
       { icon: '📞', label: 'IVR (Owned & Operated)',color: '#e31837', months: [0,0,1,1,1,0], lift: '+7%'   },
     ],
-    insight: 'Semcasting achieves 90% verified match rate against all 56.1M Medicare beneficiaries — 50.4M matched seniors ready to activate. CTV and Linear TV via Blockgraph lead the first two months; IVR fires in Month 3 when the flu season is approaching and urgency is highest. Medicare Part B covers most immunizations at no cost to the patient — removing price friction entirely. High investment per person is warranted by the lifetime pharmacy value of a new Medicare patient.',
+    insight: 'Semcasting achieves 85% verified match rate against all 56.1M Medicare beneficiaries — 50.4M matched seniors ready to activate. CTV and Linear TV via Blockgraph lead the first two months; IVR fires in Month 3 when the flu season is approaching and urgency is highest. Medicare Part B covers most immunizations at no cost to the patient — removing price friction entirely. High investment per person is warranted by the lifetime pharmacy value of a new Medicare patient.',
   },
 };
 
